@@ -1,0 +1,93 @@
+
+body {
+    /*background-image: url('https://cdn.britannica.com/92/216092-050-4B31C2B7/custom-library.jpg?q=60');
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg/1200px-Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg');
+    */background-image: url('https://carnegiemnh.org/wp-content/uploads/2020/04/110805_1594-scaled.jpg');
+    background-repeat: no-repeat;
+}
+
+.signInGrid {
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+    grid-template-areas: "gridImage gridForm";
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5%;
+    grid-auto-rows: auto;
+    grid-template-rows: 750px;
+    
+}
+
+.frmSignIn {
+    background-color: rgba(0,0,0,.4);
+    border: solid;
+    border-width: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10%;
+    margin-top: 25%;
+}
+
+.frmRegister {
+    background-color: rgba(0,0,0,.4);
+    border: solid;
+    border-width: 0px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 12.5px;
+}
+
+.frmRegister div {
+    margin-bottom: 20px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+h3, label {
+    color: beige;
+}
+
+img {
+    border: solid;
+    border-width: 0px;
+    border-radius: 10px;
+    width: 90%;
+    height: 100%;
+}
+
+.btnSubmit {
+    width: 175px;
+}
+
+.btnRegister, .btnCancel {
+    float: right;
+    width: 175px;
+}
+
+.lblForgotPassword {
+    color: white;
+    cursor: pointer;
+    margin-top: 1px;
+    margin-left: 5px;
+    font-style: italic;
+    font-size: smaller;
+}
+
+.signInDisplay {
+    display: block;
+}
+
+.forgotPasswordDisplay {
+    display: none;
+}
+
+.registerDisplay {
+    display: none;
+}
