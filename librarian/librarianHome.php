@@ -34,6 +34,9 @@
 			<div id="viewAuthors" class="viewAuthors">
 				<?php include '../librarian/librarianAuthor.php'; ?>
 			</div>
+			<div id="viewAddBook" class="viewAddBook">
+				<?php include '../librarian/librarianAddBook.php'; ?>
+			</div>
 		</main>
 		<footer class="container-fluid">
 			<label>&copy; Created by Martin Louw</label>

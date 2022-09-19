@@ -8,12 +8,16 @@ let viewRentedBooks = document.getElementById("viewRentedBooks");
 let viewMembers = document.getElementById("viewMembers");
 let viewAuthors = document.getElementById("viewAuthors");
 
+let btnAddBook = document.getElementById("btnAddBook");
+let viewAddBook = document.getElementById("viewAddBook");
+
 //Change to Books Screen
 btnDisplayBooks.addEventListener('click', (e) => {
     viewBooks.style.display = "block";
     viewRentedBooks.style.display = "none";
     viewMembers.style.display = "none";
     viewAuthors.style.display = "none";
+    viewAddBook.style.display = "none";
 })
 
 //Change to Rented Screen
@@ -22,6 +26,7 @@ btnDisplayRented.addEventListener('click', (e) => {
     viewRentedBooks.style.display = "block";
     viewMembers.style.display = "none";
     viewAuthors.style.display = "none";
+    viewAddBook.style.display = "none";
 })
 
 //Change to Members Screen
@@ -30,6 +35,7 @@ btnDisplayMembers.addEventListener('click', (e) => {
     viewRentedBooks.style.display = "none";
     viewMembers.style.display = "block";
     viewAuthors.style.display = "none";
+    viewAddBook.style.display = "none";
 })
 
 //Change to Authors Screen
@@ -38,4 +44,14 @@ btnDisplayAuthors.addEventListener('click', (e) => {
     viewRentedBooks.style.display = "none";
     viewMembers.style.display = "none";
     viewAuthors.style.display = "block";
+    viewAddBook.style.display = "none";
+})
+
+//Change to Add Book Screen
+btnAddBook.addEventListener('click', (e) => {
+    viewBooks.style.display = "none";
+    viewRentedBooks.style.display = "none";
+    viewMembers.style.display = "none";
+    viewAuthors.style.display = "none";
+    viewAddBook.style.display = "block";
 })

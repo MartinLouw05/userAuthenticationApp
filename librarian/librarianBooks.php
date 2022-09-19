@@ -1,7 +1,8 @@
 <section>
 	<h1>Books
+		
+		<button id="btnAddBook" class="btnAddBook">Add New Book</button>
 		<form method="post" class="frmBooks">
-		<button id="addBook" class="btnAddBook">Add New Book</button>
 			<input type='text' id="bookSearch" name="bookSearch" class="bookSearch">
 		</form>
 	</h1>
