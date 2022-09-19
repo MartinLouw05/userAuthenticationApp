@@ -6,7 +6,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "root";
-    $dbname = "databaseschallenge2";
+    $dbname = "globalbooks";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -15,7 +15,7 @@
         die("Connection Failed: " . $conn -> connect_error);
     }
     else {
-        echo "<script> console.log('Connection Successful'); </script>"
+        echo "<script> console.log('Connection Successful'); </script>";
     }
 
 ?>

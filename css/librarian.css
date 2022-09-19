@@ -1,0 +1,118 @@
+
+body {
+    background-image: url(../media/librarian-as-career.jpg);
+    background-repeat: no-repeat;
+
+    padding: 1%;
+}
+
+.container-fluid {
+    background-color: rgba(0,0,0,.4);
+    padding: 10px;
+    border: solid;
+    border-width: 0px;
+    border-radius: 10px;
+    margin-bottom: 1%;
+}
+
+h1 {
+    color: beige;
+}
+
+.btnLogOut {
+    float: right;    
+}
+
+.buttonGrid {
+    display: grid;
+    grid-template-areas: "gridButton gridButton gridButton gridButton";
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5%;
+    grid-auto-rows: auto;
+    grid-template-rows: auto;
+}
+
+.gridButton {
+    border: solid;
+    border-width: 0px;
+    border-radius: 10px;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.btnNavigate {
+    background-color: aqua;
+    width: 100%;
+    border: solid;
+    border-width: 0px;
+    border-radius: 10px;
+}
+
+.viewBooks {
+    display: none;
+}
+
+.viewRentedBooks {
+    display: block;
+}
+
+.viewMembers {
+    display: none;
+}
+
+.viewAuthors {
+    display: none;
+}
+
+.frmRented, .frmAuthors, .frmBooks, .frmMembers {
+    float: right;
+}
+
+.rentedSelect, .authorSelect {
+    height: 25px;
+    font-size: small;
+}
+
+.rentedSearch, .authorSearch, .bookSearch, .memberSearch {
+    height: 25px;
+    font-size: small;
+}
+
+.rentedTable, .authorTable, .bookTable, .memberTable {
+    width: 100%;
+    background-color: #966f33;
+    border: solid;
+    border-width: 0px;
+    border-radius: 10px;
+}
+
+.rentedTableHead, .authorTableHead, .bookTableHead, .memberTableHead {
+    text-align: center;
+    padding: 5px;
+    font-size: large;    
+}
+
+.rentedTableRow, .authorTableRow ,.bookTableRow, .memberTableRow {
+    text-align: center;
+}
+
+td {
+    padding: 5px;    
+}
+
+.btnAddBook {
+    font-size: small;
+    width: 100px;
+    height: 25px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    background-color: green;
+}
+
+footer {
+    color: beige;
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic;
+}

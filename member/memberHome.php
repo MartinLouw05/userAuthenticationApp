@@ -4,7 +4,7 @@
 		<title>Member Home</title>
 	</head>
 	<body>
-		<header></header>
+		<header>Member Home</header>
 		<main></main>
 		<footer></footer>
 	</body>

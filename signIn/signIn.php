@@ -15,6 +15,8 @@
 			<input type="submit" id="submit" name="submit" class="btn btn-success btnSubmit">
 			<button id="register" class="btn btn-warning btnRegister">Create New Account</button><br>
 			<label id="forgotPassword" class="lblForgotPassword">Forgot Password</label><br>
+			<label onclick="window.location.href='./member/memberHome.php'">member view</label><br>
+			<label onclick="window.location.href='./librarian/librarianHome.php'">librarian view</label>
 		</form>
 	</div>
 </section>
