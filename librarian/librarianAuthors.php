@@ -1,4 +1,5 @@
-<section>
+<?php include '../librarian/librarianHeader.php'; ?>
+
 	<h1>Authors
 		<form method="post" class="frmAuthors">
 			<input type='text' id="authorSearch" name="authorSearch" class="authorSearch">
@@ -36,4 +37,5 @@
 				echo "Error selecting table " . $conn->error;
 			}
 	?>
-</section>
+
+<?php include '../librarian/librarianFooter.php'; ?>

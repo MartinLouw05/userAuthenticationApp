@@ -1,4 +1,5 @@
-<section>
+<?php include '../librarian/librarianHeader.php'; ?>
+
 	<h1>Members
 		<form method="post" class="frmMembers">			
 			<input type='text' id="memberSearch" name="memberSearch" class="memberSearch">
@@ -38,4 +39,5 @@
 				echo "Error selecting table " . $conn->error;
 			}
 	?>
-</section>
+
+<?php include '../librarian/librarianFooter.php'; ?>

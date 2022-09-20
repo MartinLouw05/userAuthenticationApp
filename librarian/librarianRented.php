@@ -1,4 +1,5 @@
-<section>
+<?php include '../librarian/librarianHeader.php'; ?>
+
 	<h1>Rented Books
 		<form method="post" class="frmRented">
 			<select id="rentedSelect" name="rentedSelect" class="rentedSelect">
@@ -42,4 +43,5 @@
 				echo "Error selecting table " . $conn->error;
 			}
 	?>
-</section>
+
+<?php include '../librarian/librarianFooter.php'; ?>

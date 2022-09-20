@@ -1,10 +1,11 @@
-<section>
+<?php include '../librarian/librarianHeader.php'; ?>
+
 	<form method="post" class="frmAddBook">
 		<h1>Add Book</h1>
 		<label for="bookName">Name</label><br>
-			<input type="text" id="bookName" name="bookName" class="form-control" required><br>
+			<input type="text" id="bookName" name="bookName" class="form-control"><br>
 		<label for="bookGenre">Genre</label><br>
-		<select id="bookGenre" name="bookGenre" class="form-control" required>
+		<select id="bookGenre" name="bookGenre" class="form-control">
 			<option value="" selected hidden>Please Select a Genre</option>
 			<?php 
 				$sql = "SELECT * FROM genre";
@@ -23,7 +24,7 @@
 			?>
 			</select>
 		<br><label for="bookAuthor">Author</label><br>			
-			<select id="bookAuthor" name="bookAuthor" class="form-control" required>
+			<select id="bookAuthor" name="bookAuthor" class="form-control">
 				<option value="" selected hidden>Please Select an Author</option>
 				<?php 
 					$sql = "SELECT * FROM authors";
@@ -43,10 +44,11 @@
 				?>	
 			</select><br>		
 		<label for="bookPublishedDate">Published Date</label><br>
-			<input type="date" id="bookPublishedDate" name="bookPublishedDate" class="form-control" required><br>
+			<input type="date" id="bookPublishedDate" name="bookPublishedDate" class="form-control"><br>
 		<label for="bookDesc">Description</label><br>
-			<textarea id="bookDesc" name="bookDesc" class="form-control" required></textarea><br>
+			<textarea id="bookDesc" name="bookDesc" class="form-control"></textarea><br>
 		<input type="submit" id="btnSubmitBook" name="btnSubmitBook" value="Submit" class="btn btn-success btnSubmitBook">
-		<input type="button" id="btnCancelBook" value="Cancel" class="btn btn-danger btnCancelBook">
+		<button id="btnCancelBook" name="btnCancelBook" value="Cancel" class="btn btn-danger btnCancelBook">Cancel</button>
 	</form>
-</section>
+
+<?php include '../librarian/librarianFooter.php'; ?>

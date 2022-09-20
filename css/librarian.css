@@ -116,7 +116,6 @@ td {
 }
 
 .btnAddBook {
-    float: inline-end;
     font-size: small;
     width: 100px;
     height: 25px;

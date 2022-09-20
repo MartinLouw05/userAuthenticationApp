@@ -15,9 +15,9 @@ let btnUpdateBook = document.getElementById("btnUpdateBook");
 let viewUpdateBook = document.getElementById("viewUpdateBook");
 
 let btnDeleteBook = document.getElementById("btnDeleteBook");
-
+/*
 //Change to Books Screen
-/*btnDisplayBooks.addEventListener('click', (e) => {
+btnDisplayBooks.addEventListener('click', (e) => {
     viewBooks.style.display = "block";
     viewRentedBooks.style.display = "none";
     viewMembers.style.display = "none";
@@ -26,13 +26,12 @@ let btnDeleteBook = document.getElementById("btnDeleteBook");
     viewUpdateBook.style.display = "none";
 
     clearAddBookInputs();
-})*/
+})
 
 btnDisplayBooks.addEventListener('click', (e) => {
     let libView = document.getElementById('libView');
 
     //libView.innerHTML = '<?php include "../librarian/librarianBooks.php"; ?>';
-    libView.append('<?php include "../librarian/librarianBooks.php"; ?>');
 })
 
 //Change to Rented Screen

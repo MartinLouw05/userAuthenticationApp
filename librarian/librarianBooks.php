@@ -1,12 +1,13 @@
-<section>	
+<?php include '../librarian/librarianHeader.php'; ?>
+
 	<h1>
-		Books		
-		<button id="btnAddBook" class="btnAddBook">Add New Book</button>
-		<form method="post" class="frmBooks">
+		Books	
+		<form method="post" class="frmBooks">	
+			<button id="btnAddBook" name="btnAddBook" class="btnAddBook">Add New Book</button>		
 			<input type='text' id="bookSearch" name="bookSearch" class="bookSearch">
 		</form>
 	</h1>
-	<form action="" method='post'>
+	<form method='post'>
 		<table class="bookTable">
 			<thead class="bookTableHead">
 				<th>Name</th>
@@ -49,4 +50,5 @@
 					}
 		?>
 	</form>
-</section>
+
+<?php include '../librarian/librarianFooter.php'; ?>
