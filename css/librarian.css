@@ -78,6 +78,7 @@ h1 {
 }
 
 .rentedSearch, .authorSearch, .bookSearch, .memberSearch {
+    float: right;
     height: 25px;
     font-size: small;
 }

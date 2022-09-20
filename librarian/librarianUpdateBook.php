@@ -1,6 +1,7 @@
 <section>
 	<form method="post" class="frmAddBook">
-		<h1>Add Book</h1>
+		<h1>Update Book</h1>
+        <input type="text" id="bookID" name="bookID" class="form-control" disabled>
 		<label for="bookName">Name</label><br>
 			<input type="text" id="bookName" name="bookName" class="form-control" required><br>
 		<label for="bookGenre">Genre</label><br>
@@ -46,7 +47,7 @@
 			<input type="date" id="bookPublishedDate" name="bookPublishedDate" class="form-control" required><br>
 		<label for="bookDesc">Description</label><br>
 			<textarea id="bookDesc" name="bookDesc" class="form-control" required></textarea><br>
-		<input type="submit" id="btnSubmitBook" name="btnSubmitBook" value="Submit" class="btn btn-success btnSubmitBook">
-		<input type="button" id="btnCancelBook" value="Cancel" class="btn btn-danger btnCancelBook">
+		<input type="submit" id="btnSubmitUpdateBook" name="btnSubmitUpdateBook" value="Submit" class="btn btn-success btnSubmitBook">
+		<input type="button" id="btnCancelUpdateBook" value="Cancel" class="btn btn-danger btnCancelBook">
 	</form>
 </section>

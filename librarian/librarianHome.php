@@ -22,6 +22,9 @@
 			</section>			
 		</header>
 		<main>
+			<div id="libView">
+				<?php include '../librarian/librarianRented.php'; ?>
+			</div>
 			<div id="viewBooks" class="viewBooks">
 				<?php include '../librarian/librarianBooks.php'; ?>
 			</div>
@@ -36,6 +39,9 @@
 			</div>
 			<div id="viewAddBook" class="viewAddBook">
 				<?php include '../librarian/librarianAddBook.php'; ?>
+			</div>
+			<div id="viewUpdateBook" class="viewAddBook">
+				<?php include '../librarian/librarianUpdateBook.php'; ?>
 			</div>
 		</main>
 		<footer class="container-fluid">
