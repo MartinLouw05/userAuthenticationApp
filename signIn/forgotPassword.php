@@ -9,11 +9,11 @@
 			<h3>Forgot Password</h3>
 
 			<label for="forgotEmail">Email</label><br>
-				<input type="email" id="forgotEmail" name="forgotEmail" class="form-control" required><br>
+				<input type="email" id="forgotEmail" name="forgotEmail" class="form-control"><br>
 			<label for="forgotDoB">Date of Birth</label><br>
-				<input type="date" id="forgotDoB" name="forgotDoB" class="form-control" required><br>
-			<input type="submit" id="forgotSubmit" name="forgotSubmit" class="btn btn-success btnSubmit">
-			<button id="forgotCancel" class="btn btn-warning btnCancel">Cancel</button><br>
+				<input type="date" id="forgotDoB" name="forgotDoB" class="form-control"><br>
+			<input type="submit" id="btnForgotSubmit" name="btnForgotSubmit" class="btn btn-success btnForgotSubmit">
+			<button id="btnForgotCancel" name="btnForgotCancel" class="btn btn-warning btnForgotCancel">Cancel</button><br>
 		</form>
 	</div>
 </section>

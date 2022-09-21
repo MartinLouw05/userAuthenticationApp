@@ -9,34 +9,34 @@
 			<h3>Register</h3>
 			<div>
 				<label for="registerName">First Name</label><br>
-					<input type="text" id="registerName" name="registerName" class="form-control" required>
+					<input type="text" id="registerName" name="registerName" class="form-control">
 			</div>
 			<div>
 			<label for="registerSurname">Last Name</label><br>
-				<input type="text" id="registerSurname" name="registerSurname" class="form-control" required>
+				<input type="text" id="registerSurname" name="registerSurname" class="form-control">
 			</div>
 			<div>
 			<label for="registerEmail">Email</label><br>
-				<input type="email" id="registerEmail" name="registerEmail" class="form-control" required>
+				<input type="email" id="registerEmail" name="registerEmail" class="form-control">
 			</div>
 			<div>
 			<label for="registerDoB">Date of Birth</label><br>
-				<input type="date" id="registerDoB" name="registerDoB" class="form-control" required>
+				<input type="date" id="registerDoB" name="registerDoB" class="form-control">
 			</div>
 			<div>
 			<label for="registerNumber">Contact Number</label><br>
-				<input type="number" id="registerNumber" name="registerNumber" class="form-control" required>
+				<input type="number" id="registerNumber" name="registerNumber" class="form-control">
 			</div>
 			<div>
 			<label for="registerPassword">Password</label><br>
-				<input type="password" id="registerPassword" name="registerPassword" class="form-control" required>
+				<input type="password" id="registerPassword" name="registerPassword" class="form-control">
 			</div>
 			<div>
 			<label for="registerReEnterPassword">Re-Enter Password</label><br>
-				<input type="password" id="registerReEnterPassword" name="registerReEnterPassword" class="form-control" required>
+				<input type="password" id="registerReEnterPassword" name="registerReEnterPassword" class="form-control">
 			</div>
-			<input type="submit" id="registerSubmit" name="registerSubmit" class="btn btn-success btnSubmit">
-			<button id="registerCancel" class="btn btn-warning btnCancel">Cancel</button><br>
+			<input type="submit" id="btnRegisterSubmit" name="btnRegisterSubmit" class="btn btn-success btnRegisterSubmit">
+			<button id="btnRegisterCancel" name="btnRegisterCancel" class="btn btn-warning btnRegisterCancel">Cancel</button><br>
 		</form>
 	</div>
 </section>

@@ -3,7 +3,7 @@
 	<h1>
 		Books	
 		<form method="post" class="frmBooks">	
-			<button id="btnAddBook" name="btnAddBook" class="btnAddBook">Add New Book</button>		
+			<button id="btnAddBook" name="btnAddBook" class="btnAddBook">Add New Book</button>
 			<input type='text' id="bookSearch" name="bookSearch" class="bookSearch">
 		</form>
 	</h1>

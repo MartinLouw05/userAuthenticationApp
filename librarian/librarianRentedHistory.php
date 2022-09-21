@@ -1,8 +1,8 @@
 <?php include '../librarian/librarianHeader.php'; ?>
 
-	<h1>Rented Books
+	<h1>Rented Books History
 		<form method="post" class="frmRented">
-			<button id="btnRentedHistory" name="btnRentedHistory" class="btnRentedHistory">Rented History</button>
+			<button id="btnRented" name="btnRented" class="btnRented">Outstanding Books</button>
 			<select id="rentedSelect" name="rentedSelect" class="rentedSelect">
 				<option value="books">Books</option>
 				<option value="members">Members</option>

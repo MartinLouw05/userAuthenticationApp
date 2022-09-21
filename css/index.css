@@ -61,22 +61,25 @@ img {
     height: 100%;
 }
 
-.btnSubmit {
+.btnLogIn, .btnRegisterSubmit, .btnForgotSubmit {
     width: 175px;
 }
 
-.btnRegister, .btnCancel {
+.btnRegister, .btnCancel, .btnForgotCancel, .btnRegisterCancel {
     float: right;
     width: 175px;
 }
 
-.lblForgotPassword {
+.btnForgotPassword {
     color: white;
     cursor: pointer;
     margin-top: 1px;
     margin-left: 5px;
     font-style: italic;
     font-size: smaller;
+    border: solid;
+    border-width: 0px;
+    background-color: transparent;
 }
 
 .signInDisplay {

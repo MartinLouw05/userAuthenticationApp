@@ -11,10 +11,11 @@
 	</head>
 	<body>
 		<header class="container-fluid">
-			<h1>Librarian Home
-				<button class="btn btn-danger btnLogOut">Log Out</button>
-			</h1>
 			<form method="post">
+				<h1>Librarian Home
+					<button id="btnLogOut" name="btnLogOut" class="btn btn-danger btnLogOut">Log Out</button>
+				</h1>
+			
 				<section class="buttonGrid">
 					<div class="gridButton"><button id="btnDisplayBooks" name="btnDisplayBooks" class="btnNavigate">Books</button></div>
 					<div class="gridButton"><button id="btnDisplayRented" name="btnDisplayRented" class="btnNavigate">Rented</button></div>
