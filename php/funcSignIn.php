@@ -31,7 +31,7 @@
                     if ($email == $row['member_email'] && $password == $row['member_password']) {
                         array_push($logInAttempt, "success");
                         $memberRole = $row['role_id'];
-                        $memberID = $row['memberID'];
+                        $memberID = $row['member_id'];
                         $_SESSION['loggedInRoleID'] = $memberRole;
                         $_SESSION['loggedInMemberID'] = $memberID;
                     }
@@ -40,7 +40,7 @@
                     }                    
                	}
             }
-            matchingUser($logInAttempt, $memberRole);
+            matchingUser($logInAttempt);
         }
         else {
             echo "Error selecting table " . $conn->error;
@@ -48,10 +48,9 @@
     }
 
     //Check for Matching User
-    function matchingUser($logInAttempt, $memberRole) {
+    function matchingUser($logInAttempt) {
         if (in_array("success", $logInAttempt)) {
-            echo "<script> alert('Match Found'); </script>";
-            roleValidation($memberRole);
+            roleValidation();
         }
         else {
             echo "  <script>  
@@ -62,11 +61,11 @@
     }
 
     //Check User Role
-    function roleValidation($roleID) {
-        if ($roleID == "1") {
+    function roleValidation() {
+        if ($_SESSION['loggedInRoleID'] == "1") {
             header("Location: ./member/memberHome.php");
         }
-        elseif ($roleID == "2") {
+        elseif ($_SESSION['loggedInRoleID'] == "2") {
             header("Location: ./librarian/librarianRented.php");
         }
         else {

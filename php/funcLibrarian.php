@@ -3,8 +3,15 @@
 
     include('../connections/connect.php');
 
+    echo $_SESSION['loggedInMemberID'];
+
+    if ($_SESSION['loggedInMemberID'] == "") {
+        header("Location: ../index.php");
+    }
+
     //Log Out User and Return to Sign In Screen
-    if (array_key_exists('btnLogOut', $_POST)) {     
+    if (array_key_exists('btnLogOut', $_POST)) {    
+        $_SESSION['loggedInMemberID'] = "";         
         header("Location: ../index.php");  
     }
 
