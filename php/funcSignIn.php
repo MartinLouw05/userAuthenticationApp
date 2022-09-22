@@ -66,7 +66,7 @@
     //Check User Role
     function roleValidation() {
         if ($_SESSION['loggedInRoleID'] == "1") {
-            header("Location: ./member/memberHome.php");
+            header("Location: ./member/memberRented.php");
         }
         elseif ($_SESSION['loggedInRoleID'] == "2") {
             header("Location: ./librarian/librarianRented.php");

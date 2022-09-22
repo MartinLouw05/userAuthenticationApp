@@ -16,8 +16,7 @@
 			<th>Book</th>
 			<th>Member</th>
 			<th>Date Rented</th>
-			<th>Return Date</th>
-			<th>Actions</th>
+			<th>Return Date</th>			
 		</thead>
 		<tbody>
 			<?php			
@@ -31,8 +30,7 @@
 								<td><?= $row['book_name'] ?></td>
 								<td><?= $row['member_name'] . " " . $row['member_surname'] ?></td>
 								<td><?= $row['rented_date'] ?></td>
-								<td><?= $row['rented_return_date'] ?></td>
-								<td><button></button></td>
+								<td><?= $row['rented_return_date'] ?></td>								
 							</tr>					
 				<?php	}	?>
 		</tbody>

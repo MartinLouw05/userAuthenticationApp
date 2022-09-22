@@ -3,7 +3,7 @@
 
     include('../connections/connect.php');
 
-    //Ensure that a Member is Still Logged In
+    //Ensure that a Librarian is Still Logged In
     /*if ($_SESSION['loggedInMemberID'] == "") {
         header("Location: ../index.php");
     }*/

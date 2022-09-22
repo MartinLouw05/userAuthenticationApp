@@ -20,7 +20,7 @@
 			<button id="btnRegister" name="btnRegister" class="btn btn-warning btnRegister">Create New Account</button><br>
 			<button id="btnForgotPassword" name="btnForgotPassword" class="btnForgotPassword">Forgot Password</button><br>
 
-			<label onclick="window.location.href='./member/memberHome.php'">member view</label><br>
+			<label onclick="window.location.href='./member/memberRented.php'">member view</label><br>
 			<label onclick="window.location.href='./librarian/librarianRented.php'">librarian view</label>
 		</form>
 	</div>

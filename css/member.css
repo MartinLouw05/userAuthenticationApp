@@ -1,0 +1,132 @@
+
+body {
+    background-image: url(../media/librarian-as-career.jpg);
+    background-repeat: no-repeat;
+
+    padding: 1%;
+}
+
+.container-fluid {
+    background-color: rgba(0,0,0,.4);
+    padding: 10px;
+    border: solid;
+    border-width: 0px;
+    border-radius: 10px;
+    margin-bottom: 1%;
+}
+
+h1 {
+    color: beige;
+}
+
+.btnLogOut, .btnAccInfo {
+    float: right;
+    margin-right: 5px;    
+    margin-top: 5px;
+}
+
+.buttonGrid {
+    display: grid;
+    grid-template-areas: "gridButton gridButton";
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5%;
+    grid-auto-rows: auto;
+    grid-template-rows: auto;
+}
+
+.gridButton {
+    border: solid;
+    border-width: 0px;
+    border-radius: 10px;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.btnNavigate {
+    background-color: aqua;
+    width: 100%;
+    border: solid;
+    border-width: 0px;
+    border-radius: 10px;
+}
+
+.frmRented, .frmBooks {
+    float: right;
+}
+
+.rentedTable, .bookTable {
+    width: 100%;
+    background-color: #966f33;
+    border: solid;
+    border-width: 0px;
+    border-radius: 10px;
+}
+
+.rentedTableHead, .bookTableHead {
+    text-align: center;
+    padding: 5px;
+    font-size: large;    
+}
+
+.rentedTableRow, .bookTableRow {
+    text-align: center;
+}
+
+td {
+    padding: 5px;    
+}
+
+.rentedSelect {
+    height: 25px;
+    font-size: small;
+}
+
+.rentedSearch, .bookSearch {
+    float: right;
+    height: 25px;
+    font-size: small;
+}
+
+.btnRentedHistory, .btnRented {
+    font-size: small;
+    width: 125px;
+    height: 25px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    background-color: green;
+}
+
+.frmAddBook, .frmUpdateMember {
+    background-color: rgba(0,0,0,.4);
+    padding: 10px;
+    border: solid;
+    border-width: 0px;
+    border-radius: 10px;
+    margin-bottom: 1%;
+    color: beige;
+}
+
+.btnCancelBook {
+    float: right;
+}
+
+
+
+
+
+
+
+
+footer {
+    color: beige;
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
