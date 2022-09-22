@@ -23,7 +23,7 @@
         if ($result) {
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) { 	
-                    forgotPasswordEmail($row['member_name'], $row['member_surname'], $row['member_email']);						
+                    //forgotPasswordEmail($row['member_name'], $row['member_surname'], $row['member_email']);						
                     echo "  <script>  
                                 alert('An Mail has been Sent to your Email.  Please Check Your Inbox.'); 
                                 window.location.href = './indexForgotPassword.php';
@@ -42,7 +42,7 @@
         } 
     }
 
-    //THIS FUNCTION IS CREATED AS A PLACEHOLDER FOR THE MOMENT
+    //THIS FUNCTION IS CREATED AS A PLACEHOLDER AND IS NOT FUNCTIONAL
     //Send Email
     function forgotPasswordEmail($memberName, $memberSurname, $memberEmail) {
         try {
@@ -62,7 +62,7 @@
 
             //Recipients
             $mail->setFrom('from@example.com', 'Mailer');
-            $mail->addAddress($memberEmail, $memberName . " " . $memberSurname);               // Add a recipient
+            $mail->addAddress($memberEmail, $memberName);               // Add a recipient
 
             // Content
             $mail->isHTML(true);                                        // Set email format to HTML
