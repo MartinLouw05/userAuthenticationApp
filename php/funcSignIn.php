@@ -2,6 +2,9 @@
     session_start();
 
     include('./connections/connect.php');
+
+    //Log Out any Member when this Screen is Loaded
+    $_SESSION['loggedInMemberID'] = "";
     
     //Change to Create New Account Screen
     if (array_key_exists('btnRegister', $_POST)) {

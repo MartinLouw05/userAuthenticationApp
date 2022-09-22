@@ -3,11 +3,10 @@
 
     include('../connections/connect.php');
 
-    echo $_SESSION['loggedInMemberID'];
-
-    if ($_SESSION['loggedInMemberID'] == "") {
+    //Ensure that a Member is Still Logged In
+    /*if ($_SESSION['loggedInMemberID'] == "") {
         header("Location: ../index.php");
-    }
+    }*/
 
     //Log Out User and Return to Sign In Screen
     if (array_key_exists('btnLogOut', $_POST)) {    
@@ -285,6 +284,24 @@
         header("Location: librarianAuthors.php");
     }
 
-    
+    //Book Returned
+    if (array_key_exists('btnReturnBook', $_POST)) {
+        $bookID = $_POST['btnReturnBook'];
+        $bookStatus = 1;  //Set Book Status as Available
+        
+        $sql = "UPDATE books 
+                SET status_id = '$bookStatus' 
+                WHERE book_id = '$bookID'";
 
+        //Check if Update was Succesful
+        if ($conn->query($sql) === TRUE) {
+            echo "  <script> 
+                        alert('A Book has been Successfully Returned.'); 
+                        window.location.href = 'librarianRented.php';
+                    </script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }             
+    }
+    
 ?>

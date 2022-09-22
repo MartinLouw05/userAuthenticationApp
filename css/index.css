@@ -2,7 +2,8 @@
 body {
     /*background-image: url('https://cdn.britannica.com/92/216092-050-4B31C2B7/custom-library.jpg?q=60');
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg/1200px-Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg');
-    */background-image: url(../media/indexBackground.jpg);
+    */
+    background-image: url(../media/indexBackground.jpg);
     background-repeat: no-repeat;
 }
 
