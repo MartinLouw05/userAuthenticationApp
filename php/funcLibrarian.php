@@ -210,20 +210,49 @@
         $authorName = $_POST['authorName'];
         $authorSurname = $_POST['authorSurname'];
         $authorDob = $_POST['authorDob'];
-        $authorGenre;
+
+        //Add Author Genres
+        $authorGenre = array();
+
+        if (!empty($_POST['authorGenre']) && is_array($_POST['authorGenre'])) {
+            foreach ($_POST['authorGenre'] as $selectedGenre) {
+                $authorGenre[] = $selectedGenre;
+            }            
+        }
 
         //Save Author Information
-        if ($authorName == "" || $authorSurname == "" || $authorDob == "") {
-            echo "<script> alert('Please Ensure that All Fields have been Filled'); </script>";
+        if ($authorName == "" || $authorSurname == "" || $authorDob == "" || count($authorGenre) == 0) {
+            echo "  <script> 
+                        alert('Please Ensure that All Fields have been Filled'); 
+                        window.location.href = 'librarianAddAuthor.php';
+                    </script>";
         }
         else {
-            $today = date('Y-m-d');
+            $today = time();
+            $authorDob = strtotime($authorDob);
+            $authorAge = $today - $authorDob;
+
+            $authorAge = round($authorAge / (60 * 60 * 24));
             
             $sql = "INSERT INTO authors (author_name, author_surname, author_age)
-            VALUES ('$authorName', '$authorSurname', '$authorDob');";
+                    VALUES ('$authorName', '$authorSurname', '$authorAge');";
 
-            //Check if Insert was Succesful
+            //Check if Insert was Successful
             if ($conn->query($sql) === TRUE) {
+                $lastID = $conn->insert_id;
+
+                for ($i = 0; $i < count($authorGenre); $i++) {
+                    $sql = "INSERT INTO authors_genre (author_id, genre_id) 
+                    VALUES ('$lastID', '$authorGenre[$i]')";
+
+                    if ($conn->query($sql) === TRUE) { 
+                        //Author Genre Added Successfully
+                    }
+                    else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                }
+
                 echo "  <script> 
                             alert('New Author Created Successfully'); 
                             window.location.href = 'librarianAuthors.php';
@@ -254,26 +283,62 @@
         $authorName = $_POST['authorName'];
         $authorSurname = $_POST['authorSurname'];
         $authorDob = $_POST['authorDob'];
-        $authorGenre;
+
+        //Add Author Genres
+        $authorGenre = array();
+
+        if (!empty($_POST['authorGenre']) && is_array($_POST['authorGenre'])) {
+            foreach ($_POST['authorGenre'] as $selectedGenre) {
+                $authorGenre[] = $selectedGenre;
+            }            
+        }
 
         //Save Author Information
-        if ($authorName == "" || $authorSurname == "" || $authorDob == "") {
+        if ($authorName == "" || $authorSurname == "" || $authorDob == "" || count($authorGenre) == 0) {
             echo "<script> alert('Please Ensure that All Fields have been Filled'); </script>";
         }
         else {
-            $today = date('Y-m-d');
+            $today = time();
+            $authorDob = strtotime($authorDob);
+            $authorAge = $today - $authorDob;
+
+            $authorAge = round($authorAge / (60 * 60 * 24));
             
             $sql = "UPDATE authors 
-                    SET author_name = '$authorName', author_surname = '$authorSurname', author_age = '$authorDob' 
+                    SET author_name = '$authorName', author_surname = '$authorSurname', author_age = '$authorAge' 
                     WHERE author_id = '$authorID'";
 
-            //Check if Update was Succesful
+            //Check if Update was Successful
             if ($conn->query($sql) === TRUE) {
+
+                //Add and Delete Genres
+                $sql = "DELETE FROM authors_genre
+                        WHERE author_id = $authorID";
+
+                if ($conn->query($sql) === TRUE) { 
+                    //Author Genre Removed Successfully
+                    for ($i = 0; $i < count($authorGenre); $i++) {
+                        $sql = "INSERT INTO authors_genre (author_id, genre_id) 
+                                VALUES ('$authorID', '$authorGenre[$i]')";
+    
+                        if ($conn->query($sql) === TRUE) { 
+                            //Author Genre Added Successfully
+                        }
+                        else {
+                            echo "Error: " . $sql . "<br>" . $conn->error;
+                        }
+                    }
+                }
+                else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+
                 echo "  <script> 
                             alert('Author Information Updated Successfully'); 
                             window.location.href = 'librarianAuthors.php';
                         </script>";
-            } else {
+            } 
+            else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
         }
@@ -293,7 +358,7 @@
                 SET status_id = '$bookStatus' 
                 WHERE book_id = '$bookID'";
 
-        //Check if Update was Succesful
+        //Check if Update was Successful
         if ($conn->query($sql) === TRUE) {
             echo "  <script> 
                         alert('A Book has been Successfully Returned.'); 
@@ -303,5 +368,5 @@
             echo "Error: " . $sql . "<br>" . $conn->error;
         }             
     }
-    
+
 ?>

@@ -61,7 +61,7 @@
                             else {
                                 echo "  <script> 
                                             alert('The Entered Passwords Do Not Match.  Please Try Again.');
-                                            window.location.href = './indexForgotPassword.php';
+                                            window.location.href = './indexRegister.php';
                                         </script>";
                             }
                         }

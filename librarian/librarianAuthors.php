@@ -25,7 +25,28 @@
 								<tr class="authorTableRow">
 									<td><?= $row['author_name'] . " " . $row['author_surname'] ?></td>
 									<td><?= $row['author_age'] ?> y/o</td>
-									<td><?= $row['genre_name'] ?> FIX ME</td>
+									<td>
+										<?php 
+											$authorID = $row['author_id'];
+
+											$sql = "SELECT * FROM authors_genre 
+													INNER JOIN genre ON authors_genre.genre_id = genre.genre_id
+													WHERE author_id = $authorID";
+											$genreResult = $conn->query($sql);
+
+											if ($genreResult) {
+												if ($genreResult->num_rows > 0) {
+													while ($genreRow = $genreResult->fetch_assoc()) { ?>
+														<?= $genreRow['genre_name'] ?><br>
+										<?php
+													}
+												}
+												else {
+													echo "Error selecting table " . $conn->error;
+												}
+											}
+										?>
+									</td>
 									<td>
 										<button id="btnUpdateAuthor" name="btnUpdateAuthor" value="<?= $row['author_id'] ?>" class="btn btn-warning">Update</button>
 									</td>

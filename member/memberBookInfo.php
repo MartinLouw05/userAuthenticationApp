@@ -60,7 +60,7 @@
 		<label for="bookPublishedDate">Published Date</label><br>
 			<input type="date" id="bookPublishedDate" name="bookPublishedDate" value="<?= $row['book_published_date'] ?>" class="form-control" disabled><br>
 		<label for="bookDesc">Description</label><br>
-			<textarea id="bookDesc" name="bookDesc" class="form-control" disabled><?= $row['book_desc'] ?></textarea><br>
+			<textarea id="bookDesc" name="bookDesc" class="form-control txtBookDesc" rows="5" disabled><?= $row['book_desc'] ?></textarea><br>
 		<input type="submit" id="btnRentBook" name="btnRentBook" value="Rent Book" class="btn btn-success btnRentBook">
 		<button id="btnCancelRentBook" name="btnCancelRentBook" value="Cancel" class="btn btn-danger btnCancelBook">Cancel</button>
 	</form>

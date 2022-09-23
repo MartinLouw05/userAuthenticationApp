@@ -22,17 +22,37 @@
         <label for="authorGenre">Genre</label><br>
             <?php 
                 $sql = "SELECT * FROM genre";
-                $result = $conn->query($sql);
+                $genreResult = $conn->query($sql);
 
-                if ($result) {
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) { ?>
-                            <input type="radio" id="radio<?= $row['genre_id'] ?>" value="<?= $row['genre_id'] ?>"><?= $row['genre_name'] ?>
-            <?php	    }	   
+                if ($genreResult) {
+                    if ($genreResult->num_rows > 0) {
+                        while ($genreRow = $genreResult->fetch_assoc()) { 
+                            $authorID = $row['author_id'];
+                            $genreID = $genreRow['genre_id'];
+
+                            $sql = "SELECT * FROM authors_genre 
+                                    WHERE author_id = $authorID AND genre_id = $genreID";
+
+                            $authorGenreResult = $conn->query($sql);                            
+
+                            if ($authorGenreResult) {
+                                if ($authorGenreResult->num_rows > 0) {
+                                    while ($authorGenreRow = $authorGenreResult->fetch_assoc()) { ?>
+                                            <input type="checkbox" id="checkbox<?= $genreRow['genre_id'] ?>" name="authorGenre[]" value="<?= $genreRow['genre_id'] ?>" checked="true"><?= $genreRow['genre_name'] ?><br>
+            <?php
+
+                                    }
+                                }
+                                else { 
+            ?>
+                                    <input type="checkbox" id="checkbox<?= $genreRow['genre_id'] ?>" name="authorGenre[]" value="<?= $genreRow['genre_id'] ?>"><?= $genreRow['genre_name'] ?><br>
+            <?php               }
+                            }	   
+                        }
                     }
-                }
-                else {
-                    echo "Error selecting table " . $conn->error;
+                    else {
+                        echo "Error selecting table " . $conn->error;
+                    }
                 }
 		    ?>
         <div> 
