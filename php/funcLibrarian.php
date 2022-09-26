@@ -228,9 +228,9 @@
                     </script>";
         }
         else {
-            $today = time();
-            $authorDob = strtotime($authorDob);
-            $authorAge = $today - $authorDob;
+            $today = date('Y-m-d');
+            $diff = date_diff(date_create($authorDob), date_create($today));
+            $authorAge = $diff->format('%y');
 
             $authorAge = round($authorAge / (60 * 60 * 24));
             
@@ -293,16 +293,14 @@
             }            
         }
 
-        //Save Author Information
+        //Save Updated Author Information
         if ($authorName == "" || $authorSurname == "" || $authorDob == "" || count($authorGenre) == 0) {
             echo "<script> alert('Please Ensure that All Fields have been Filled'); </script>";
         }
         else {
-            $today = time();
-            $authorDob = strtotime($authorDob);
-            $authorAge = $today - $authorDob;
-
-            $authorAge = round($authorAge / (60 * 60 * 24));
+            $today = date('Y-m-d');
+            $diff = date_diff(date_create($authorDob), date_create($today));
+            $authorAge = $diff->format('%y');
             
             $sql = "UPDATE authors 
                     SET author_name = '$authorName', author_surname = '$authorSurname', author_age = '$authorAge' 
