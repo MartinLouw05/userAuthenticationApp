@@ -2,7 +2,7 @@
 
     <h1>Outstanding Books
         <form method="post" class="frmRented">       
-            <input type='text' id="rentedSearch" name="rentedSearch" placeholder="Search for Books" class="rentedSearch">
+            <input type='text' id="rentedSearch" name="rentedSearch" placeholder="Search Books" class="rentedSearch">
             <button id="btnRentedSearch" name="btnRentedSearch" class="btn btn-secondary btnRentedSearch">&#128269</button>            
         </form>
     </h1>

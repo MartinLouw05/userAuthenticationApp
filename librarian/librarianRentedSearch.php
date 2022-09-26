@@ -18,10 +18,14 @@
 				<th>Actions</th>
 			</thead>
 			<tbody>
-				<?php			
+				<?php	
+                    $librarianSearch = $_SESSION['librarianSearch'];
+
 					$sql = "SELECT * FROM books_rented 
 							INNER JOIN books ON books_rented.book_id = books.book_id 
-							INNER JOIN members ON books_rented.member_id = members.member_id";
+							INNER JOIN members ON books_rented.member_id = members.member_id
+                            WHERE book_name LIKE '%$librarianSearch%'";
+
 					$result = $conn->query($sql);
 					
 					if ($result) {
@@ -48,6 +52,12 @@
 		</table>
 		<?php
 					}
+                    else {
+                        echo "  <script>  
+                                    alert('No Books Found.  Please Try Again.'); 
+                                    window.location.href = './librarianRented.php';
+                                </script>";                            
+                    }
 				}
 				else {
 					echo "Error selecting table " . $conn->error;

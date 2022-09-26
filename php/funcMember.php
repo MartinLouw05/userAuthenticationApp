@@ -170,37 +170,42 @@
         }
     }
 
-    //Search Functions
+    //Rented Search Function
     if (array_key_exists('btnRentedSearch', $_POST)) {
         $memberSearch = $_POST['rentedSearch'];
+
         if ($memberSearch) {
             $_SESSION['memberSearch'] = $memberSearch;
             header('Location: memberRentedSearch.php');
         }
         else {
-            //Do Nothing
+            header('Location: memberRented.php');
         }
     }
 
+    //Rented History Search Function
     if (array_key_exists('btnRentedHistorySearch', $_POST)) {
         $memberSearch = $_POST['rentedSearch'];
+
         if ($memberSearch) {
             $_SESSION['memberSearch'] = $memberSearch;
             header('Location: memberRentedHistorySearch.php');
         }
         else {
-            //Do Nothing
+            header('Location: memberRentedHistory.php');
         }
     }
 
+    //Available Books Search Function
     if (array_key_exists('btnAvailableSearch', $_POST)) {
         $memberSearch = $_POST['availableSearch'];
+        
         if ($memberSearch) {
             $_SESSION['memberSearch'] = $memberSearch;
             header('Location: memberAvailableSearch.php');
         }
         else {
-            //Do Nothing
+            header('Location: memberAvailable.php');
         }
     }
     

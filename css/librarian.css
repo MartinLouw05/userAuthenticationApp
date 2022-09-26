@@ -87,7 +87,7 @@ h1 {
     padding-left: 10px;
 }
 
-.btnBookSearch {
+.btnBookSearch, .btnRentedSearch, .btnMemberSearch, .btnAuthorSearch {
     height: 35px;
     font-size: small;
     margin-top: 7px;

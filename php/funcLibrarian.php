@@ -358,38 +358,71 @@
         }             
     }
 
-    //librarianBooks.php Search Functions
+    //Books Search Functions
     if (array_key_exists('btnBookSearch', $_POST)) {
         $searchCriteria = $_POST['searchSelect'];
         $librarianSearch = $_POST['searchInput'];
 
         if ($searchCriteria == "book") {
-            $_SESSION['librarianSearch'] = $librarianSearch;
-            header('Location: librarianBooksSearch.php');
+            if ($librarianSearch) {
+                $_SESSION['librarianSearch'] = $librarianSearch;
+                header('Location: librarianBooksSearch.php');
+            }
+            else {
+                header('Location: librarianBooks.php');
+            }
         }
         elseif ($searchCriteria == "author") {
-            $_SESSION['librarianSearch'] = $librarianSearch;
-            header('Location: librarianBooksAuthorSearch.php');
+            if ($librarianSearch) {
+                $_SESSION['librarianSearch'] = $librarianSearch;
+                header('Location: librarianBooksAuthorSearch.php');
+            }
+            else {
+                header('Location: librarianBooks.php');
+            }
         }
         else {
             //Do Nothing
         }
-
     }
 
-    //librarianRented.php Search Functions
-    if (array_key_exists('', $_POST)) {
-    
+    //Rented Search Functions
+    if (array_key_exists('btnRentedSearch', $_POST)) {
+        $librarianSearch = $_POST['rentedSearch'];
+
+        if ($librarianSearch) {
+            $_SESSION['librarianSearch'] = $librarianSearch;
+            header('Location: librarianRentedSearch.php');
+        }
+        else {
+            header('Location: librarianRented.php');
+        }
     }
 
-    //librarianMembers.php Search Functions
-    if (array_key_exists('', $_POST)) {
-        
+    //Members Search Functions
+    if (array_key_exists('btnMemberSearch', $_POST)) {
+        $librarianSearch = $_POST['memberSearch'];
+
+        if ($librarianSearch) {
+            $_SESSION['librarianSearch'] = $librarianSearch;
+            header('Location: librarianMembersSearch.php');
+        }
+        else {
+            header('Location: librarianMembers.php');
+        }
     }
 
-    //librarianAuthors.php Search Functions
-    if (array_key_exists('', $_POST)) {
-    
+    //Authors Search Functions
+    if (array_key_exists('btnAuthorSearch', $_POST)) {
+        $librarianSearch = $_POST['authorSearch'];
+
+        if ($librarianSearch) {
+            $_SESSION['librarianSearch'] = $librarianSearch;
+            header('Location: librarianAuthorsSearch.php');
+        }
+        else {
+            header('Location: librarianAuthors.php');
+        }
     }
 
 ?>

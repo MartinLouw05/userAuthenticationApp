@@ -16,8 +16,12 @@
 				<th>Actions</th>
 			</thead>
 			<tbody>
-				<?php			
-					$sql = "SELECT * FROM authors";
+				<?php		
+                    $librarianSearch = $_SESSION['librarianSearch'];
+
+					$sql = "SELECT * FROM authors
+                            WHERE author_name LIKE '%$librarianSearch%' OR author_surname LIKE '%$librarianSearch%'";
+
 					$result = $conn->query($sql);
 					
 					if ($result) {
@@ -64,6 +68,12 @@
 
 	<?php
 				}
+                else {
+                    echo "  <script>  
+                                alert('No Authors Found.  Please Try Again.'); 
+                                window.location.href = './librarianAuthors.php';
+                            </script>";                            
+                }
 			}
 			else {
 				echo "Error selecting table " . $conn->error;

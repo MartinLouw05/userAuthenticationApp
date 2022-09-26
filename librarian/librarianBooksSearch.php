@@ -5,7 +5,7 @@
 		<form method="post" class="frmBooks">	
 			<button id="btnAddBook" name="btnAddBook" class="btnAddBook">Add New Book</button>
 			<select id="searchSelect" name="searchSelect" class="searchSelect">
-				<option value="books">Book</option>
+				<option value="book" selected>Book</option>
 				<option value="author">Author</option>
 			</select>
 			<input type='text' id="searchInput" name="searchInput" placeholder="Search by Book or Author" class="searchInput">

@@ -17,8 +17,12 @@
 				<th>Actions</th>
 			</thead>
 			<tbody>
-				<?php			
-					$sql = "SELECT * FROM members";
+				<?php	
+                    $librarianSearch = $_SESSION['librarianSearch'];
+
+					$sql = "SELECT * FROM members 
+                            WHERE member_name LIKE '%$librarianSearch%' OR member_surname LIKE '%$librarianSearch%'";
+                            
 					$result = $conn->query($sql);
 					
 					if ($result) {
@@ -39,6 +43,12 @@
 	</form>
 	<?php
 				}
+                else {
+                    echo "  <script>  
+                                alert('No Members Found.  Please Try Again.'); 
+                                window.location.href = './librarianMembers.php';
+                            </script>";                            
+                }
 			}
 			else {
 				echo "Error selecting table " . $conn->error;

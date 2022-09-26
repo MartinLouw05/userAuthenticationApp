@@ -3,7 +3,7 @@
     <h1>
 		Available Books	
 		<form method="post" class="frmBooks">	
-			<input type='text' id="availableSearch" name="availableSearch" placeholder="Search for Books" class="availableSearch">
+			<input type='text' id="availableSearch" name="availableSearch" placeholder="Search Books" class="availableSearch">
 			<button id="btnAvailableSearch" name="btnAvailableSearch" class="btn btn-secondary btnAvailableSearch">&#128269</button>
 		</form>
 	</h1>
