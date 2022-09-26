@@ -1,8 +1,7 @@
 <?php include '../member/memberHeader.php'; ?>
 
     <h1>Outstanding Books
-        <form method="post" class="frmRented">
-            <button id="btnRentedHistory" name="btnRentedHistory" class="btnRentedHistory">Rented History</button>            
+        <form method="post" class="frmRented">       
             <input type='text' id="rentedSearch" name="rentedSearch" placeholder="Search for Books" class="rentedSearch">
             <button id="btnRentedSearch" name="btnRentedSearch" class="btn btn-secondary btnRentedSearch">&#128269</button>            
         </form>
@@ -17,11 +16,14 @@
                 <th>Return Date</th>
             </thead>
             <tbody>
-                <?php			
+                <?php	
+                    $memberSearch = $_SESSION['memberSearch'];
+                
                     $sql = "SELECT * FROM books_rented 
                             INNER JOIN books ON books_rented.book_id = books.book_id                              
                             INNER JOIN members ON books_rented.member_id = members.member_id 
-                            INNER JOIN authors ON books.author_id = authors.author_id";
+                            INNER JOIN authors ON books.author_id = authors.author_id 
+                            WHERE book_name LIKE '%$memberSearch%'";
 
                     $result = $conn->query($sql);
                     
@@ -47,14 +49,21 @@
                             }	
                 ?>
             </tbody>
-        </table>
+        
         <?php
                     }
+                    else { 
+                        echo "  <script>  
+                                    alert('No Books Found.  Please Try Again.'); 
+                                    window.location.href = './memberRented.php';
+                                </script>";
+                    }
                 }
-                else {
+                else { 
                     echo "Error selecting table " . $conn->error;
                 }
         ?>
+        </table>
 	</form>
 
 <?php include '../member/memberFooter.php'; ?>

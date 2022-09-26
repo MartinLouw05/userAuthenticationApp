@@ -323,6 +323,10 @@
     
                         if ($conn->query($sql) === TRUE) { 
                             //Author Genre Added Successfully
+                            echo "  <script> 
+                                        alert('Author Information Updated Successfully'); 
+                                        window.location.href = 'librarianAuthors.php';
+                                    </script>";
                         }
                         else {
                             echo "Error: " . $sql . "<br>" . $conn->error;
@@ -332,11 +336,6 @@
                 else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
-
-                echo "  <script> 
-                            alert('Author Information Updated Successfully'); 
-                            window.location.href = 'librarianAuthors.php';
-                        </script>";
             } 
             else {
                 echo "Error: " . $sql . "<br>" . $conn->error;

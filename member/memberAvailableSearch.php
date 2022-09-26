@@ -17,11 +17,14 @@
 				<th>Actions</th>
 			</thead>
 			<tbody>
-				<?php			
+				<?php	                
+                    $memberSearch = $_SESSION['memberSearch'];
+
 					$sql = "SELECT * FROM books
 							INNER JOIN genre ON books.genre_id = genre.genre_id
 							INNER JOIN authors ON books.author_id = authors.author_id
-							INNER JOIN books_status ON books.status_id = books_status.status_id";
+							INNER JOIN books_status ON books.status_id = books_status.status_id
+                            WHERE book_name LIKE '%$memberSearch%'";
 
 					$result = $conn->query($sql);
 					
@@ -48,6 +51,12 @@
 		</table>
 		<?php					
 					}
+                    else { 
+                        echo "  <script>  
+                                    alert('No Books Found.  Please Try Again.'); 
+                                    window.location.href = './memberAvailable.php';
+                                </script>";
+                    }
 				}
 				else {
 					echo "Error selecting table " . $conn->error;

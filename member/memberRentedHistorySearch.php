@@ -2,8 +2,7 @@
 
     <h1>Rented Books History
         <form method="post" class="frmRented">
-            <button id="btnRented" name="btnRented" class="btnRented">Outstanding Books</button>
-            <input type='text' id="rentedSearch" name="rentedSearch"  placeholder="Search for Books" class="rentedSearch">
+            <input type='text' id="rentedSearch" name="rentedSearch" placeholder="Search for Books" class="rentedSearch">
             <button id="btnRentedHistorySearch" name="btnRentedHistorySearch" class="btn btn-secondary btnRentedSearch">&#128269</button>   
         </form>
     </h1>
@@ -17,10 +16,14 @@
                 <th>Return Date</th>
             </thead>
             <tbody>
-                <?php			
+                <?php	
+                    $memberSearch = $_SESSION['memberSearch'];
+                
                     $sql = "SELECT * FROM books_rented 
                             INNER JOIN books ON books_rented.book_id = books.book_id 
-                            INNER JOIN members ON books_rented.member_id = members.member_id";
+                            INNER JOIN members ON books_rented.member_id = members.member_id 
+                            WHERE book_name LIKE '%$memberSearch%'";
+                            
                     $result = $conn->query($sql);
                     
                     if ($result) {
@@ -42,6 +45,12 @@
             </tbody>
         </table>
         <?php
+                    }
+                    else { 
+                        echo "  <script>  
+                                    alert('No Books Found.  Please Try Again.'); 
+                                    window.location.href = './memberRentedHistory.php';
+                                </script>";
                     }
                 }
                 else {

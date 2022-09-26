@@ -85,20 +85,30 @@ textarea {
     font-size: small;
 }
 
-.rentedSearch, .bookSearch {
-    float: right;
-    height: 25px;
+.rentedSearch, .availableSearch {
+    height: 35px;
     font-size: small;
+    border: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    width: 300px;
+    padding-left: 10px;
+}
+
+.btnRentedSearch, .btnAvailableSearch {
+    height: 35px;
+    font-size: small;
+    margin-top: 7px;
 }
 
 .btnRentedHistory, .btnRented {
     font-size: small;
     width: 125px;
-    height: 25px;
+    height: 35px;
     border: solid;
     border-width: 1px;
     border-radius: 5px;
-    background-color: green;
+    background-color: yellowgreen;
 }
 
 .frmAddBook, .frmUpdateMember {
@@ -114,13 +124,6 @@ textarea {
 .btnCancelBook {
     float: right;
 }
-
-
-
-
-
-
-
 
 footer {
     color: beige;

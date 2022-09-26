@@ -169,5 +169,39 @@
             }        
         }
     }
+
+    //Search Functions
+    if (array_key_exists('btnRentedSearch', $_POST)) {
+        $memberSearch = $_POST['rentedSearch'];
+        if ($memberSearch) {
+            $_SESSION['memberSearch'] = $memberSearch;
+            header('Location: memberRentedSearch.php');
+        }
+        else {
+            //Do Nothing
+        }
+    }
+
+    if (array_key_exists('btnRentedHistorySearch', $_POST)) {
+        $memberSearch = $_POST['rentedSearch'];
+        if ($memberSearch) {
+            $_SESSION['memberSearch'] = $memberSearch;
+            header('Location: memberRentedHistorySearch.php');
+        }
+        else {
+            //Do Nothing
+        }
+    }
+
+    if (array_key_exists('btnAvailableSearch', $_POST)) {
+        $memberSearch = $_POST['availableSearch'];
+        if ($memberSearch) {
+            $_SESSION['memberSearch'] = $memberSearch;
+            header('Location: memberAvailableSearch.php');
+        }
+        else {
+            //Do Nothing
+        }
+    }
     
 ?>
