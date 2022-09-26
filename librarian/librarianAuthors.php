@@ -24,7 +24,12 @@
 							while ($row = $result->fetch_assoc()) { ?>
 								<tr class="authorTableRow">
 									<td><?= $row['author_name'] . " " . $row['author_surname'] ?></td>
-									<td><?= $row['author_age'] ?> y/o</td>
+									<td><?php
+											$today = date('Y-m-d');
+											$diff = date_diff(date_create($row['author_dob']), date_create($today));
+											$authorAge = $diff->format('%y');
+									 	?>	
+										<?= $authorAge ?> y/o</td>
 									<td>
 										<?php 
 											$authorID = $row['author_id'];

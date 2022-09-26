@@ -18,7 +18,7 @@
         <label for="authorSurname">Surname</label><br>
             <input type="text" id="authorSurname" name="authorSurname" value="<?= $row['author_surname'] ?>" class="form-control"><br>
         <label for="authorDob">Date of Birth</label><br>
-            <input type="date" id="authorDob" name="authorDob"  value="<?= $row['author_age'] ?>" class="form-control"><br>
+            <input type="date" id="authorDob" name="authorDob"  value="<?= $row['author_dob'] ?>" placeholder="<?= $row['author_age'] ?>" class="form-control"><br>
         <label for="authorGenre">Genre</label><br>
             <?php 
                 $sql = "SELECT * FROM genre";

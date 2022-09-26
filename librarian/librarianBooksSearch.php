@@ -5,7 +5,7 @@
 		<form method="post" class="frmBooks">	
 			<button id="btnAddBook" name="btnAddBook" class="btnAddBook">Add New Book</button>
 			<select id="searchSelect" name="searchSelect" class="searchSelect">
-				<option value="book">Book</option>
+				<option value="books">Book</option>
 				<option value="author">Author</option>
 			</select>
 			<input type='text' id="searchInput" name="searchInput" placeholder="Search by Book or Author" class="searchInput">
@@ -23,11 +23,15 @@
 				<th>Actions</th>
 			</thead>
 			<tbody>
-				<?php			
+				<?php	
+                    $librarianSearch = $_SESSION['librarianSearch'];
+
 					$sql = "SELECT * FROM books
 							INNER JOIN genre ON books.genre_id = genre.genre_id
 							INNER JOIN authors ON books.author_id = authors.author_id
-							INNER JOIN books_status ON books.status_id = books_status.status_id";
+							INNER JOIN books_status ON books.status_id = books_status.status_id
+                            WHERE book_name LIKE '%$librarianSearch%'";
+
 					$result = $conn->query($sql);
 					
 					if ($result) {
@@ -49,6 +53,12 @@
 		</table>
 		<?php
 						}
+                        else {
+                            echo "  <script>  
+                                        alert('No Books Found.  Please Try Again.'); 
+                                        window.location.href = './librarianBooks.php';
+                                    </script>";                            
+                        }
 					}
 					else {
 						echo "Error selecting table " . $conn->error;

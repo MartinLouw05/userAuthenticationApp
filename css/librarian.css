@@ -77,10 +77,20 @@ h1 {
     font-size: small;
 }
 
-.rentedSearch, .authorSearch, .bookSearch, .memberSearch {
-    float: right;
-    height: 25px;
+.rentedSearch, .authorSearch, .searchInput, .memberSearch {
+    height: 35px;
     font-size: small;
+    border: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    width: 300px;
+    padding-left: 10px;
+}
+
+.btnBookSearch {
+    height: 35px;
+    font-size: small;
+    margin-top: 7px;
 }
 
 .rentedTable, .authorTable, .bookTable, .memberTable {
@@ -118,11 +128,21 @@ td {
 .btnAddBook, .btnAddAuthor, .btnRentedHistory, .btnRented {
     font-size: small;
     width: 125px;
-    height: 25px;
+    height: 35px;
     border: solid;
     border-width: 1px;
     border-radius: 5px;
-    background-color: green;
+    background-color: yellowgreen;
+}
+
+.searchSelect {
+    height: 35px;
+    width: 100px;
+    font-size: small;
+    border: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    padding-left: 10px;
 }
 
 .btnCancelBook, .btnCancelAuthor {

@@ -138,11 +138,13 @@
     if (array_key_exists('btnDeleteBook', $_POST)) {
         $bookID = $_POST['btnDeleteBook'];
         
-        $sql = "DELETE FROM books WHERE book_id = $bookID";
+        $sql = "UPDATE books 
+                SET status_id = 4 
+                WHERE book_id = $bookID";
         
         if ($conn->query($sql) === TRUE) {
             echo "  <script> 
-                        alert('Book Successfully Deleted');
+                        alert('Book Successfully Marked as Inactive');
                         window.location.href = 'librarianBooks.php';
                     </script>";            
         } 
@@ -227,15 +229,9 @@
                         window.location.href = 'librarianAddAuthor.php';
                     </script>";
         }
-        else {
-            $today = date('Y-m-d');
-            $diff = date_diff(date_create($authorDob), date_create($today));
-            $authorAge = $diff->format('%y');
-
-            $authorAge = round($authorAge / (60 * 60 * 24));
-            
-            $sql = "INSERT INTO authors (author_name, author_surname, author_age)
-                    VALUES ('$authorName', '$authorSurname', '$authorAge');";
+        else {            
+            $sql = "INSERT INTO authors (author_name, author_surname, author_dob)
+                    VALUES ('$authorName', '$authorSurname', '$authorDob');";
 
             //Check if Insert was Successful
             if ($conn->query($sql) === TRUE) {
@@ -297,13 +293,9 @@
         if ($authorName == "" || $authorSurname == "" || $authorDob == "" || count($authorGenre) == 0) {
             echo "<script> alert('Please Ensure that All Fields have been Filled'); </script>";
         }
-        else {
-            $today = date('Y-m-d');
-            $diff = date_diff(date_create($authorDob), date_create($today));
-            $authorAge = $diff->format('%y');
-            
+        else {           
             $sql = "UPDATE authors 
-                    SET author_name = '$authorName', author_surname = '$authorSurname', author_age = '$authorAge' 
+                    SET author_name = '$authorName', author_surname = '$authorSurname', author_dob = '$authorDob' 
                     WHERE author_id = '$authorID'";
 
             //Check if Update was Successful
@@ -364,6 +356,40 @@
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }             
+    }
+
+    //librarianBooks.php Search Functions
+    if (array_key_exists('btnBookSearch', $_POST)) {
+        $searchCriteria = $_POST['searchSelect'];
+        $librarianSearch = $_POST['searchInput'];
+
+        if ($searchCriteria == "book") {
+            $_SESSION['librarianSearch'] = $librarianSearch;
+            header('Location: librarianBooksSearch.php');
+        }
+        elseif ($searchCriteria == "author") {
+            $_SESSION['librarianSearch'] = $librarianSearch;
+            header('Location: librarianBooksAuthorSearch.php');
+        }
+        else {
+            //Do Nothing
+        }
+
+    }
+
+    //librarianRented.php Search Functions
+    if (array_key_exists('', $_POST)) {
+    
+    }
+
+    //librarianMembers.php Search Functions
+    if (array_key_exists('', $_POST)) {
+        
+    }
+
+    //librarianAuthors.php Search Functions
+    if (array_key_exists('', $_POST)) {
+    
     }
 
 ?>
