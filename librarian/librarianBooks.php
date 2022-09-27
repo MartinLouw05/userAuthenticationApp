@@ -28,11 +28,13 @@
 							INNER JOIN genre ON books.genre_id = genre.genre_id
 							INNER JOIN authors ON books.author_id = authors.author_id
 							INNER JOIN books_status ON books.status_id = books_status.status_id";
+							
 					$result = $conn->query($sql);
 					
 					if ($result) {
 						if ($result->num_rows > 0) {
-							while ($row = $result->fetch_assoc()) { ?>
+							while ($row = $result->fetch_assoc()) { 
+								if ($row['status_id'] == 1 || $row['status_id'] == 2) { ?>
 								<tr class="bookTableRow">
 									<td><?= $row['book_name'] ?></td>
 									<td><?= $row['genre_name'] ?> </td>
@@ -41,10 +43,17 @@
 									<td><?= $row['status_name'] ?> </td>
 									<td>										
 										<button id="btnUpdateBook" name="btnUpdateBook" value="<?= $row['book_id'] ?>" class="btn btn-warning">Update</button>
-										<button id="btnDeleteBook" name="btnDeleteBook" value="<?= $row['book_id'] ?>" class="btn btn-danger">Delete</button>
+										<button id="btnDeleteBook" name="btnDeleteBook" value="<?= $row['book_id'] ?>" class="btn btn-danger">Remove</button>
+										<button id="btnBookHistory" name="btnBookHistory" value="<?= $row['book_id'] ?>" class="btn btn-info">History</button>
 									</td>
 								</tr>					
-					<?php	}	?>
+					<?php		
+								}
+								else {
+									//These Books Are No Longer Active
+								}
+							}	
+					?>
 			</tbody>
 		</table>
 		<?php

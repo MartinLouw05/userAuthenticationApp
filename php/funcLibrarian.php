@@ -54,6 +54,27 @@
         header("Location: librarianRented.php");
     }
 
+    //Change to Collections Screen
+    if (array_key_exists('btnCollections', $_POST)) {       
+        header("Location: librarianCollections.php");
+    }
+
+    //Change to Member Rented History Screen
+    if (array_key_exists('btnMemberHistory', $_POST)) {  
+        $memberID = $_POST['btnMemberHistory'];
+        $_SESSION['memberHistoryID'] = $memberID;   
+
+        header("Location: librarianMemberHistory.php");
+    }
+
+    //Change to Book's History Screen
+    if (array_key_exists('btnBookHistory', $_POST)) {  
+        $bookID = $_POST['btnBookHistory'];
+        $_SESSION['bookHistoryID'] = $bookID;   
+
+        header("Location: librarianBookHistory.php");
+    }
+
     //Create New Book
     if (isset($_POST['btnSubmitBook'])) {
         //Book Information
@@ -134,13 +155,14 @@
         header("Location: librarianBooks.php");
     }
 
-    //Delete Book
+    //Book Lost
     if (array_key_exists('btnDeleteBook', $_POST)) {
         $bookID = $_POST['btnDeleteBook'];
+        $bookStatus = 3; //Set Book Status to Inactive
         
         $sql = "UPDATE books 
-                SET status_id = 4 
-                WHERE book_id = $bookID";
+                SET status_id = '$bookStatus' 
+                WHERE book_id = '$bookID'";
         
         if ($conn->query($sql) === TRUE) {
             echo "  <script> 
@@ -338,22 +360,74 @@
         header("Location: librarianAuthors.php");
     }
 
+    //Book Collected
+    if (array_key_exists('btnCollectBook', $_POST)) { 
+        $rentedID = $_POST['btnCollectBook'];
+        $rentedStatus = 1; //Set Rented Status to Active
+
+        $sql = "UPDATE books_rented 
+                SET books_rented_status_id = '$rentedStatus' 
+                WHERE rented_id = '$rentedID'";
+        
+        //Check if Update was Successful
+        if ($conn->query($sql) === TRUE) { 
+            echo "  <script> 
+                        alert('A Book has been Successfully Collected.'); 
+                        window.location.href = 'librarianRented.php';
+                    </script>";
+        }
+        else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+
     //Book Returned
     if (array_key_exists('btnReturnBook', $_POST)) {
-        $bookID = $_POST['btnReturnBook'];
-        $bookStatus = 1;  //Set Book Status as Available
-        
-        $sql = "UPDATE books 
-                SET status_id = '$bookStatus' 
-                WHERE book_id = '$bookID'";
+        $rentedID = $_POST['btnReturnBook'];
+        $rentedStatus = 2;  //Set Rental Status as Completed
+        $today = date('Y-m-d');
+
+        $sql = "UPDATE books_rented 
+                SET books_rented_status_id = '$rentedStatus', rented_date_returned = '$today' 
+                WHERE rented_id = '$rentedID'";       
 
         //Check if Update was Successful
         if ($conn->query($sql) === TRUE) {
-            echo "  <script> 
-                        alert('A Book has been Successfully Returned.'); 
-                        window.location.href = 'librarianRented.php';
-                    </script>";
-        } else {
+            //Retrieve Book ID to Update its Status
+            $sql = "SELECT * FROM books_rented 
+                    WHERE rented_id = '$rentedID'";
+
+            $bookIdResult = $conn->query($sql);
+
+            if ($bookIdResult) {
+                if ($bookIdResult->num_rows > 0) {
+                    while ($row = $bookIdResult->fetch_assoc()) { 
+                        //Update Book Status
+                        $bookID = $row['book_id'];
+                        $bookStatus = 1; //Set Book Status as Available
+
+                        $sql = "UPDATE books 
+                                SET status_id = '$bookStatus' 
+                                WHERE book_id = '$bookID'";
+                        
+                        //Check if Update was Successful
+                        if ($conn->query($sql) === TRUE) { 
+                            echo "  <script> 
+                                        alert('A Book has been Successfully Returned.'); 
+                                        window.location.href = 'librarianRented.php';
+                                    </script>";
+                        }
+                        else {
+                            echo "Error: " . $sql . "<br>" . $conn->error;
+                        }
+                    }
+                }
+            }
+            else {
+                echo "Error selecting table " . $conn->error;
+            }
+        } 
+        else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }             
     }
@@ -396,6 +470,19 @@
         }
         else {
             header('Location: librarianRented.php');
+        }
+    }
+
+    //Rented History Search
+    if (array_key_exists('btnRentedHistorySearch', $_POST)) {
+        $librarianSearch = $_POST['rentedHistorySearch'];
+
+        if ($librarianSearch) {
+            $_SESSION['librarianSearch'] = $librarianSearch;
+            header('Location: librarianRentedHistorySearch.php');
+        }
+        else {
+            header('Location: librarianRentedHistory.php');
         }
     }
 

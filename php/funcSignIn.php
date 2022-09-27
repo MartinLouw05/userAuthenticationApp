@@ -5,6 +5,39 @@
 
     //Log Out any Member when this Screen is Loaded
     $_SESSION['loggedInMemberID'] = "";
+
+    //Change Book Status if Overdue
+    $sql = "SELECT * FROM books_rented 
+            WHERE NOT books_rented_status_id = '2'";
+
+    $result = $conn->query($sql);
+
+    $today = date('Y-m-d');
+
+    if ($result) {
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row['rented_return_date'] < $today) {
+                    $rentalID = $row['rented_id'];
+                    $rentalStatus = 4;  //Set Status to Overdue
+
+                    $sql = "UPDATE books_rented 
+                            SET books_rented_status_id = '$rentalStatus' 
+                            WHERE rented_id = '$rentalID'";
+
+                    if ($conn->query($sql) === TRUE) { 
+                        //Books Rented Status Successfully Updated                        
+                    }
+                    else {
+                        //Something Went Wrong While Attempting to Update Status                        
+                    }                    
+                }
+            }
+        }
+    }
+    else {
+        echo "Error selecting table " . $conn->error;
+    }
     
     //Change to Create New Account Screen
     if (array_key_exists('btnRegister', $_POST)) {

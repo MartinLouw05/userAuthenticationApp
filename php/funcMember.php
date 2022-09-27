@@ -56,23 +56,26 @@
     if (isset($_POST['btnRentBook'])) { 
         $bookID = $_SESSION['bookID'];
         $memberID = $_SESSION['loggedInMemberID'];
+        $rentedStatus = '3';    //Set Rented Status to Reserved
+        $bookStatus = '2';      //Set Book Status to Unavailable
+
+        //Calculate Return Date
         $today = date('Y-m-d');
-        echo "$today";
-        echo "$bookID";
-        echo "$memberID";
+        $returnDate = date_add(date_create($today), date_interval_create_from_date_string("30 days"));
+        $returnDate = date_format($returnDate, 'Y-m-d');
 
         $sql = "UPDATE books 
-                SET status_id = 2 
-                WHERE book_id = '$bookID';";
+                SET status_id = '$bookStatus' 
+                WHERE book_id = '$bookID'";
 
         //Check if Update was Successful
         if ($conn->query($sql) === TRUE) {
-            $sql = "INSERT INTO books_rented (book_id, member_id, rented_date, rented_return_date) 
-                    VALUES ('$bookID', '$memberID', '$today', '$today');";
+            $sql = "INSERT INTO books_rented (book_id, member_id, rented_date, rented_return_date, books_rented_status_id) 
+                    VALUES ('$bookID', '$memberID', '$today', '$returnDate', '$rentedStatus');";
 
             if ($conn->query($sql) === TRUE) {        
                 echo "  <script> 
-                            alert('A Book has been Successfully Rented.'); 
+                            alert('A Book has been Successfully Rented.  Please Collect the Book from the Library within the Next 3 Days.'); 
                             window.location.href = 'memberAvailable.php';
                         </script>";
             } 

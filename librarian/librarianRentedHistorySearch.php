@@ -13,36 +13,41 @@
 			<th>Book</th>
 			<th>Member</th>
 			<th>Date Rented</th>
-			<th>Return Date</th>
-			<th>Date Returned</th>			
+			<th>Return Date</th>			
 		</thead>
 		<tbody>
-			<?php			
+			<?php	
+                $librarianSearch = $_SESSION['librarianSearch'];
+
 				$sql = "SELECT * FROM books_rented 
-						INNER JOIN books ON books_rented.book_id = books.book_id 
-						INNER JOIN members ON books_rented.member_id = members.member_id";
+                        INNER JOIN books ON books_rented.book_id = books.book_id 
+                        INNER JOIN members ON books_rented.member_id = members.member_id 
+                        WHERE book_name LIKE '%$librarianSearch%'";
+
 				$result = $conn->query($sql);
 				
 				if ($result) {
 					if ($result->num_rows > 0) {
 						while ($row = $result->fetch_assoc()) { 
-							if ($row['books_rented_status_id'] == 2) { ?>
+                            if ($row['status_id'] == ) { ?>
 							<tr class="rentedTableRow">
 								<td><?= $row['book_name'] ?></td>
 								<td><?= $row['member_name'] . " " . $row['member_surname'] ?></td>
 								<td><?= $row['rented_date'] ?></td>
 								<td><?= $row['rented_return_date'] ?></td>								
-								<td><?= $row['rented_date_returned'] ?></td>								
 							</tr>					
-				<?php		}
-							else {
-								//These Rented Order are Still Ongoing
-							}
-						}	?>
+				<?php	}
+                }	?>
 		</tbody>
 	</table>
 	<?php
 				}
+                else {
+                    echo "  <script>  
+                                alert('No Books Found.  Please Try Again.'); 
+                                window.location.href = './librarianRentedHistory.php';
+                            </script>";                            
+                }
 			}
 			else {
 				echo "Error selecting table " . $conn->error;

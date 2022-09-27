@@ -31,6 +31,7 @@
 									<td><?= $row['member_email'] ?> </td>
 									<td>
 										<button id="btnUpdateMember" name="btnUpdateMember" value="<?= $row['member_id'] ?>" class="btn btn-warning">Update</button>										
+										<button id="btnMemberHistory" name="btnMemberHistory" value="<?= $row['member_id'] ?>" class="btn btn-danger">History</button>										
 									</td>
 								</tr>					
 					<?php	}	?>
