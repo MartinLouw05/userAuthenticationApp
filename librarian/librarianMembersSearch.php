@@ -21,7 +21,8 @@
                     $librarianSearch = $_SESSION['librarianSearch'];
 
 					$sql = "SELECT * FROM members 
-                            WHERE member_name LIKE '%$librarianSearch%' OR member_surname LIKE '%$librarianSearch%' AND NOT role_id = 2";
+                            WHERE member_name LIKE '%$librarianSearch%' OR member_surname LIKE '%$librarianSearch%' AND NOT role_id = 2 
+							ORDER BY member_name ASC";
                             
 					$result = $conn->query($sql);
 					

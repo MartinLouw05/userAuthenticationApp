@@ -2,10 +2,12 @@
 
 	<?php 
 		$bookID = $_SESSION['bookID'];
+
 		$sql = "SELECT * FROM books 
 				INNER JOIN genre ON books.genre_id = genre.genre_id 
 				INNER JOIN authors ON books.author_id = authors.author_id
-				WHERE book_id = $bookID";
+				WHERE book_id = '$bookID'";
+
 		$result = $conn->query($sql);
 
 		if ($result) { 

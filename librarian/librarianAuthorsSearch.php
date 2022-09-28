@@ -20,7 +20,8 @@
                     $librarianSearch = $_SESSION['librarianSearch'];
 
 					$sql = "SELECT * FROM authors
-                            WHERE author_name LIKE '%$librarianSearch%' OR author_surname LIKE '%$librarianSearch%'";
+                            WHERE author_name LIKE '%$librarianSearch%' OR author_surname LIKE '%$librarianSearch%' 
+							ORDER BY author_name ASC";
 
 					$result = $conn->query($sql);
 					

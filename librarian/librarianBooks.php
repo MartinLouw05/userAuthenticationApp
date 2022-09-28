@@ -27,7 +27,8 @@
 					$sql = "SELECT * FROM books
 							INNER JOIN genre ON books.genre_id = genre.genre_id
 							INNER JOIN authors ON books.author_id = authors.author_id
-							INNER JOIN books_status ON books.status_id = books_status.status_id";
+							INNER JOIN books_status ON books.status_id = books_status.status_id 
+							ORDER BY book_name ASC";
 							
 					$result = $conn->query($sql);
 					

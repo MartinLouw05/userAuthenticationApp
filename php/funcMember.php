@@ -4,9 +4,9 @@
     include('../connections/connect.php');
 
     //Ensure that a Member is Still Logged In
-    /*if ($_SESSION['loggedInMemberID'] == "") {
+    if ($_SESSION['loggedInMemberID'] == "") {
         header("Location: ../index.php");
-    }*/
+    }
 
     //Log Out User and Return to Sign In Screen
     if (array_key_exists('btnLogOut', $_POST)) {    

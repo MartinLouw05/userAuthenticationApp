@@ -17,7 +17,9 @@
 			</thead>
 			<tbody>
 				<?php			
-					$sql = "SELECT * FROM authors";
+					$sql = "SELECT * FROM authors 
+							ORDER BY author_name ASC";
+							
 					$result = $conn->query($sql);
 					
 					if ($result) {

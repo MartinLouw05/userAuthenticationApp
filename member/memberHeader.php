@@ -14,6 +14,7 @@
 			<form method="post">
 				<?php 
 					$memberID = $_SESSION['loggedInMemberID'];
+					
 					$sql = "SELECT * FROM members 
 							WHERE member_id = $memberID";
 					

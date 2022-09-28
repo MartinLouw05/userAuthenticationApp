@@ -24,7 +24,8 @@
                     $sql = "SELECT * FROM books_rented 
                             INNER JOIN books ON books_rented.book_id = books.book_id  
                             INNER JOIN authors ON books.author_id = authors.author_id 
-                            WHERE NOT books_rented_status_id = '2' AND member_id = '$memberID'";
+                            WHERE NOT books_rented_status_id = '2' AND member_id = '$memberID' 
+                            ORDER BY rented_return_date ASC";
 
                     $result = $conn->query($sql);
                     

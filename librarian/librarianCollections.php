@@ -23,7 +23,8 @@
 					$sql = "SELECT * FROM books_rented 
 							INNER JOIN books ON books_rented.book_id = books.book_id 
 							INNER JOIN members ON books_rented.member_id = members.member_id
-                            WHERE books_rented_status_id = '$rentalStatus'";
+                            WHERE books_rented_status_id = '$rentalStatus' 
+							ORDER BY rented_date ASC";
 
 					$result = $conn->query($sql);
 					

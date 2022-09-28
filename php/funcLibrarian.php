@@ -140,16 +140,17 @@
         }
         else {
             $sql = "UPDATE books 
-                    SET book_name = '$bookName', book_desc = '$bookDesc', book_published_date = '$bookPublishedDate', genre_id = '$bookGenre', author_id = '$bookAuthor' 
+                    SET book_name = '$bookName', book_published_date = '$bookPublishedDate', genre_id = '$bookGenre', author_id = '$bookAuthor'
                     WHERE book_id = '$bookID'";
 
-            //Check if Update was Succesful
+            //Check if Update was Successful
             if ($conn->query($sql) === TRUE) {
                 echo "  <script> 
                             alert('Book Information Updated Successfully'); 
                             window.location.href = 'librarianBooks.php';
                         </script>";
-            } else {
+            } 
+            else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
         }
@@ -169,6 +170,7 @@
                 SET status_id = '$bookStatus' 
                 WHERE book_id = '$bookID'";
         
+        //Check if Update was Successful
         if ($conn->query($sql) === TRUE) {
             echo "  <script> 
                         alert('Book Successfully Marked as Inactive');
