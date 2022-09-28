@@ -43,8 +43,17 @@
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) { 
                         if ($row['member_email'] == $memberEmail) {
+                            echo "  <script>  
+                                        alert('An Account with this Email Already Exists.  Please Try Again.'); 
+                                        window.location.href = './indexRegister.php';
+                                    </script>"; 
+                        }
+                        else {
                             //Check if Passwords Match
                             if ($memberPassword == $memberReEnterPassword) {
+                                //Hash Password
+                                $memberPassword = password_hash($memberPassword, PASSWORD_DEFAULT);
+
                                 $sql = "INSERT INTO members (member_name, member_surname, member_date_of_birth, member_email, member_password, member_contact_number, role_id) 
                                         VALUES ('$memberName', '$memberSurname', '$memberDoB', '$memberEmail', '$memberPassword', '$memberContact', '$memberRole')";
     
@@ -63,13 +72,7 @@
                                             alert('The Entered Passwords Do Not Match.  Please Try Again.');
                                             window.location.href = './indexRegister.php';
                                         </script>";
-                            }
-                        }
-                        else {
-                            echo "  <script>  
-                                        alert('An Account with this Email Already Exists.  Please Try Again.'); 
-                                        window.location.href = './indexRegister.php';
-                                    </script>";  
+                            }                             
                         }                        
                     }
                 }

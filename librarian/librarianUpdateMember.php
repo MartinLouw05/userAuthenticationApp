@@ -26,7 +26,7 @@
         <label for="memberContact">Contact Number</label><br>
 			<input type="number" id="memberContact" name="memberContact" class="form-control" value="<?= $row['member_contact_number'] ?>" max="9999999999"><br>
         <label for="memberRole">Role</label><br>
-        <select id="memberRole" name="memberRole" class="form-control">
+        <select id="memberRole" name="memberRole" class="form-control" disabled>
 			<option value="<?= $row['role_id'] ?>" selected hidden><?= $row['role_name'] ?></option>
 			<?php 
 				$sql = "SELECT * FROM role";

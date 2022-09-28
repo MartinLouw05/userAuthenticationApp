@@ -14,6 +14,7 @@
                 <th>Author</th>
                 <th>Date Rented</th>
                 <th>Return Date</th>
+                <th>Status</th>
             </thead>
             <tbody>
                 <?php	
@@ -40,6 +41,22 @@
                                             <td><?= $row['author_name'] . " " . $row['author_surname'] ?></td>
                                             <td><?= $row['rented_date'] ?></td>
                                             <td><?= $row['rented_return_date'] ?></td>
+                                            <td>
+                                                <?php
+                                                    $statusID = $row['books_rented_status_id']; 
+
+                                                    if ($statusID == 1) { ?>
+                                                        Ongoing
+                                                <?php    
+                                                    }
+                                                    elseif ($statusID == 3) { ?>
+                                                        Collect
+                                                <?php
+                                                    }
+                                                    else { ?>
+                                                        Overdue
+                                            <?php   } ?>
+                                            </td>
                                         </tr>	
                         <?php       }
                                 }

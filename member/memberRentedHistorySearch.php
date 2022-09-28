@@ -2,6 +2,7 @@
 
     <h1>Rented Books History
         <form method="post" class="frmRented">
+            <button id="btnRented" name="btnRented" class="btnRented">Active Rentals</button>
             <input type='text' id="rentedSearch" name="rentedSearch" placeholder="Search Books" class="rentedSearch">
             <button id="btnRentedHistorySearch" name="btnRentedHistorySearch" class="btn btn-secondary btnRentedSearch">&#128269</button>   
         </form>
@@ -11,9 +12,10 @@
         <table class="rentedTable">
             <thead class="rentedTableHead">
                 <th>Book</th>
-                <th>Member</th>
+                <th>Author</th>
                 <th>Date Rented</th>
                 <th>Return Date</th>
+                <th>Date Returned</th>
             </thead>
             <tbody>
                 <?php	
@@ -21,7 +23,7 @@
                 
                     $sql = "SELECT * FROM books_rented 
                             INNER JOIN books ON books_rented.book_id = books.book_id 
-                            INNER JOIN members ON books_rented.member_id = members.member_id 
+                            INNER JOIN authors ON books.author_id = authors.author_id
                             WHERE book_name LIKE '%$memberSearch%'";
                             
                     $result = $conn->query($sql);
@@ -32,9 +34,10 @@
                                 if ($row['member_id'] == $_SESSION['loggedInMemberID']) { ?>                                    
                                     <tr class="rentedTableRow">
                                         <td><?= $row['book_name'] ?></td>
-                                        <td><?= $row['member_name'] . " " . $row['member_surname'] ?></td>
+                                        <td><?= $row['author_name'] . " " . $row['author_surname'] ?></td>
                                         <td><?= $row['rented_date'] ?></td>
                                         <td><?= $row['rented_return_date'] ?></td>
+                                        <td><?= $row['rented_date_returned'] ?></td>
                                     </tr>	
                         <?php   }
                                 else { 								

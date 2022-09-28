@@ -21,7 +21,7 @@
                     $librarianSearch = $_SESSION['librarianSearch'];
 
 					$sql = "SELECT * FROM members 
-                            WHERE member_name LIKE '%$librarianSearch%' OR member_surname LIKE '%$librarianSearch%'";
+                            WHERE member_name LIKE '%$librarianSearch%' OR member_surname LIKE '%$librarianSearch%' AND NOT role_id = 2";
                             
 					$result = $conn->query($sql);
 					
@@ -35,6 +35,7 @@
 									<td><?= $row['member_email'] ?> </td>
 									<td>
 										<button id="btnUpdateMember" name="btnUpdateMember" value="<?= $row['member_id'] ?>" class="btn btn-warning">Update</button>										
+										<button id="btnMemberHistory" name="btnMemberHistory" value="<?= $row['member_id'] ?>" class="btn btn-danger">History</button>
 									</td>
 								</tr>					
 					<?php	}	?>

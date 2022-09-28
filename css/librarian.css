@@ -19,8 +19,10 @@ h1 {
     color: beige;
 }
 
-.btnLogOut {
-    float: right;    
+.btnLogOut, .btnHome {
+    float: right;   
+    margin-right: 5px;    
+    margin-top: 5px; 
 }
 
 .buttonGrid {

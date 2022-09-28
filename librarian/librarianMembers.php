@@ -18,7 +18,9 @@
 			</thead>
 			<tbody>
 				<?php			
-					$sql = "SELECT * FROM members";
+					$sql = "SELECT * FROM members
+							WHERE role_id = 1";		//Only Display Members
+							
 					$result = $conn->query($sql);
 					
 					if ($result) {

@@ -42,6 +42,7 @@
 											$sql = "SELECT * FROM authors_genre 
 													INNER JOIN genre ON authors_genre.genre_id = genre.genre_id
 													WHERE author_id = $authorID";
+													
 											$genreResult = $conn->query($sql);
 
 											if ($genreResult) {

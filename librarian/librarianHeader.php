@@ -32,6 +32,7 @@
 					}
 				?>				
 					<button id="btnLogOut" name="btnLogOut" class="btn btn-danger btnLogOut">Log Out</button>
+					<button id="btnHome" name="btnHome" class="btn btn-success btnHome">&#127968;</button>
 				</h1>
 			
 				<section class="buttonGrid">

@@ -127,37 +127,31 @@
             if ($result) {
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) { 
-                        if ($row['member_email'] == $memberEmail) {
-                            //Check if Passwords Match
-                            if ($memberPassword == $memberReEnterPassword) {
-                                $sql = "UPDATE members 
-                                        SET member_name = '$memberName', member_surname = '$memberSurname', member_date_of_birth = '$memberDoB', member_email = '$memberEmail', member_contact_number = '$memberContact' 
-                                        WHERE member_id = '$memberID'";
+                        //Check if Passwords Match
+                        if ($memberPassword == $memberReEnterPassword) {
+                            //Hash Password
+                            $memberPassword = password_hash($memberPassword, PASSWORD_DEFAULT);
 
-                                //Check if Insert was Succesful
-                                if ($conn->query($sql) === TRUE) {
-                                    echo "  <script> 
-                                                alert('Your Account Information Has Been Successfully Updated.'); 
-                                                window.location.href = './memberRented.php';
-                                            </script>";
-                                } else {
-                                    echo "spmetinhg went wrong";
-                                    echo "Error: " . $sql . "<br>" . $conn->error;
-                                }
-                            }
-                            else {
+                            $sql = "UPDATE members 
+                                    SET member_name = '$memberName', member_surname = '$memberSurname', member_date_of_birth = '$memberDoB', member_email = '$memberEmail', member_contact_number = '$memberContact', member_password = '$memberPassword' 
+                                    WHERE member_id = '$memberID'";
+
+                            //Check if Insert was Succesful
+                            if ($conn->query($sql) === TRUE) {
                                 echo "  <script> 
-                                            alert('The Entered Passwords Do Not Match.  Please Try Again.');
-                                            window.location.href = './memberAccInfo.php';
+                                            alert('Your Account Information Has Been Successfully Updated.'); 
+                                            window.location.href = './memberRented.php';
                                         </script>";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . $conn->error;
                             }
                         }
                         else {
-                            echo "  <script>  
-                                        alert('An Account with this Email Already Exists.  Please Try Again.'); 
+                            echo "  <script> 
+                                        alert('The Entered Passwords Do Not Match.  Please Try Again.');
                                         window.location.href = './memberAccInfo.php';
-                                    </script>";  
-                        }                        
+                                    </script>";
+                        }                      
                     }
                 }
                 else {

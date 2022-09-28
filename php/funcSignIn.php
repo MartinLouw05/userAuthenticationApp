@@ -64,7 +64,7 @@
         if ($result) {
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) { 							
-                    if ($email == $row['member_email'] && $password == $row['member_password']) {
+                    if ($email == $row['member_email'] && password_verify($password, $row['member_password'])) {
                         array_push($logInAttempt, "success");
                         $memberRole = $row['role_id'];
                         $memberID = $row['member_id'];

@@ -2,6 +2,7 @@
 
 	<h1>Rented Books
 		<form method="post" class="frmRented">
+			<button id="btnCollections" name="btnCollections" class="btnRentedHistory">Collections</button>
 			<button id="btnRentedHistory" name="btnRentedHistory" class="btnRentedHistory">Rented History</button>
 			<input type='text' id="rentedSearch" name="rentedSearch" placeholder="Search Books" class="rentedSearch">
 			<button id="btnRentedSearch" name="btnRentedSearch" class="btn btn-secondary btnRentedSearch">&#128269</button>
@@ -31,7 +32,7 @@
 					if ($result) {
 						if ($result->num_rows > 0) {
 							while ($row = $result->fetch_assoc()) { 
-								if ($row['status_id'] == 1) {
+								if ($row['books_rented_status_id'] == 2 || $row['books_rented_status_id'] == 3) {
 									//Do Not Include These Entries
 								}
 								else { ?>									
@@ -41,7 +42,13 @@
 										<td><?= $row['rented_date'] ?></td>
 										<td><?= $row['rented_return_date'] ?></td>
 										<td>
-											<button id="btnReturnBook" name="btnReturnBook" value="<?= $row['book_id'] ?>" class="btn btn-warning">Book Returned</button>
+											<?php 
+												if ($row['books_rented_status_id'] == 1 || $row['books_rented_status_id'] == 4) { ?>
+													<button id="btnReturnBook" name="btnReturnBook" value="<?= $row['rented_id'] ?>" class="btn btn-warning">Returned</button>
+										<?php	}
+												elseif ($row['books_rented_status_id'] == 3) { ?>
+													<button id="btnCollectBook" name="btnCollectBook" value="<?= $row['rented_id'] ?>" class="btn btn-warning">Collected</button>
+										<?php	}	?>											
 										</td>
 									</tr>					
 				<?php	

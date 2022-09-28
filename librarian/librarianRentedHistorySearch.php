@@ -13,7 +13,8 @@
 			<th>Book</th>
 			<th>Member</th>
 			<th>Date Rented</th>
-			<th>Return Date</th>			
+			<th>Return Date</th>
+			<th>Date Returned</th>				
 		</thead>
 		<tbody>
 			<?php	
@@ -29,12 +30,13 @@
 				if ($result) {
 					if ($result->num_rows > 0) {
 						while ($row = $result->fetch_assoc()) { 
-                            if ($row['status_id'] == ) { ?>
+                            if ($row['books_rented_status_id'] == 2) { ?>
 							<tr class="rentedTableRow">
-								<td><?= $row['book_name'] ?></td>
+							<td><?= $row['book_name'] ?></td>
 								<td><?= $row['member_name'] . " " . $row['member_surname'] ?></td>
 								<td><?= $row['rented_date'] ?></td>
 								<td><?= $row['rented_return_date'] ?></td>								
+								<td><?= $row['rented_date_returned'] ?></td>						
 							</tr>					
 				<?php	}
                 }	?>

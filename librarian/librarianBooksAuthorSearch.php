@@ -45,7 +45,8 @@
 									<td><?= $row['status_name'] ?> </td>
 									<td>										
 										<button id="btnUpdateBook" name="btnUpdateBook" value="<?= $row['book_id'] ?>" class="btn btn-warning">Update</button>
-										<button id="btnDeleteBook" name="btnDeleteBook" value="<?= $row['book_id'] ?>" class="btn btn-danger">Delete</button>
+										<button id="btnDeleteBook" name="btnDeleteBook" value="<?= $row['book_id'] ?>" class="btn btn-danger">Remove</button>
+										<button id="btnBookHistory" name="btnBookHistory" value="<?= $row['book_id'] ?>" class="btn btn-info">History</button>
 									</td>
 								</tr>					
 					<?php	}	?>

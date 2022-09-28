@@ -4,9 +4,14 @@
     include('../connections/connect.php');
 
     //Ensure that a Librarian is Still Logged In
-    /*if ($_SESSION['loggedInMemberID'] == "") {
+    if ($_SESSION['loggedInMemberID'] == "") {
         header("Location: ../index.php");
-    }*/
+    }
+
+    //Return to Librarian Home
+    if (array_key_exists('btnHome', $_POST)) {            
+        header("Location: librarianRented.php");  
+    }
 
     //Log Out User and Return to Sign In Screen
     if (array_key_exists('btnLogOut', $_POST)) {    
@@ -195,7 +200,7 @@
         $memberRole = $_POST['memberRole'];
 
         //Save Member Information
-        if ($memberName == "" || $memberSurname == "" || $memberDob == "" || $memberEmail == "" || $memberContact == "" || $memberRole == "") {
+        if ($memberName == "" || $memberSurname == "" || $memberDob == "" || $memberEmail == "" || $memberContact == "") {
             if (strlen($memberContact) == 10) {
                 echo "<script> alert('Please Ensure that All Fields have been Filled'); </script>";
             }
@@ -208,7 +213,7 @@
         }
         else {
             $sql = "UPDATE members 
-                    SET member_name = '$memberName', member_surname = '$memberSurname', member_date_of_birth = '$memberDob', member_email = '$memberEmail', member_contact_number = '$memberContact', role_id = '$memberRole' 
+                    SET member_name = '$memberName', member_surname = '$memberSurname', member_date_of_birth = '$memberDob', member_email = '$memberEmail', member_contact_number = '$memberContact' 
                     WHERE member_id = '$memberID'";
 
             //Check if Update was Succesful
