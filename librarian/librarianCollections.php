@@ -17,6 +17,7 @@
 				<th>Actions</th>
 			</thead>
 			<tbody>
+				<tr class="rentedTableRow">
 				<?php	
                     $rentalStatus = 3; //Set Status as Reserved
 
@@ -30,38 +31,34 @@
 					
 					if ($result) {
 						if ($result->num_rows > 0) {
-							while ($row = $result->fetch_assoc()) { ?>
-									<tr class="rentedTableRow">
-										<td><?= $row['book_name'] ?></td>
-										<td><?= $row['member_name'] . " " . $row['member_surname'] ?></td>
-										<td><?= $row['rented_date'] ?></td>
-										<td><?= $row['rented_return_date'] ?></td>
-										<td>
-											<?php 
-												if ($row['books_rented_status_id'] == 1 || $row['books_rented_status_id'] == 4) { ?>
-													<button id="btnReturnBook" name="btnReturnBook" value="<?= $row['rented_id'] ?>" class="btn btn-warning">Returned</button>
-										<?php	}
-												elseif ($row['books_rented_status_id'] == 3) { ?>
-													<button id="btnCollectBook" name="btnCollectBook" value="<?= $row['rented_id'] ?>" class="btn btn-warning">Collected</button>
-										<?php	}	?>											
-										</td>
-									</tr>
-                    <?php	} ?>
-			</tbody>
-		</table>
-		<?php
+							while ($row = $result->fetch_assoc()) { ?>									
+								<td><?= $row['book_name'] ?></td>
+								<td><?= $row['member_name'] . " " . $row['member_surname'] ?></td>
+								<td><?= $row['rented_date'] ?></td>
+								<td><?= $row['rented_return_date'] ?></td>
+								<td>
+									<?php 
+										if ($row['books_rented_status_id'] == 1 || $row['books_rented_status_id'] == 4) { ?>
+											<button id="btnReturnBook" name="btnReturnBook" value="<?= $row['rented_id'] ?>" class="btn btn-warning">Returned</button>
+								<?php	}
+										elseif ($row['books_rented_status_id'] == 3) { ?>
+											<button id="btnCollectBook" name="btnCollectBook" value="<?= $row['rented_id'] ?>" class="btn btn-warning">Collected</button>
+								<?php	}	?>											
+								</td>
+                    <?php	} 		
+						}
+						else { ?>                        
+							<td>No Collections Found</td>                        
+			<?php
+						}
 					}
-                    else { ?>
-                        <tr class="rentedTableRow">
-                            <td>No Collections Found</td>
-                        </tr>
-        <?php
-                    }
-				}
-				else {
-					echo "Error selecting table " . $conn->error;
-				}
-		?>
-	</form>
+					else {
+						echo "Error selecting table " . $conn->error;
+					}
+			?>
+			</tr>
+		</tbody>
+	</table>
+</form>
 
 <?php include '../librarian/librarianFooter.php'; ?>
