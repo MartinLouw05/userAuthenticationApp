@@ -19,12 +19,6 @@ h1 {
     color: beige;
 }
 
-.btnLogOut, .btnAccInfo {
-    float: right;
-    margin-right: 5px;    
-    margin-top: 5px;
-}
-
 .buttonGrid {
     display: grid;
     grid-template-areas: "gridButton gridButton";
@@ -85,30 +79,10 @@ textarea {
     font-size: small;
 }
 
-.rentedSearch, .availableSearch {
-    height: 35px;
-    font-size: small;
-    border: solid;
-    border-radius: 5px;
-    border-width: 1px;
-    width: 300px;
-    padding-left: 10px;
-}
-
 .btnRentedSearch, .btnAvailableSearch {
     height: 35px;
     font-size: small;
     margin-top: 7px;
-}
-
-.btnRentedHistory, .btnRented {
-    font-size: small;
-    width: 125px;
-    height: 35px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    background-color: yellowgreen;
 }
 
 .frmAddBook, .frmUpdateMember {
@@ -136,4 +110,178 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+
+@media only screen and (max-width: 600px) { 
+    .rentedSearch, .availableSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 250px;
+        padding-left: 10px;
+    }
+
+    .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: fit-content;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
+
+    .btnLogOut, .btnAccInfo {
+        float: right;
+        margin-right: 5px;    
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (min-width: 600px) { 
+    .rentedSearch, .availableSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 200px;
+        padding-left: 10px;
+    }
+
+    .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: fit-content;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
+
+    .btnLogOut, .btnAccInfo {
+        float: right;
+        width: fit-content;
+        margin-right: 5px;    
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (min-width: 768px) { 
+    .rentedSearch, .availableSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 250px;
+        padding-left: 10px;
+    }
+
+    .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: fit-content;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
+
+    .btnLogOut, .btnAccInfo {
+        float: right;
+        width: auto;
+        margin-right: 5px;    
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (min-width: 860px) { 
+    .rentedSearch, .availableSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 250px;
+        padding-left: 10px;
+    }
+
+    .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: 125px;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
+
+    .btnLogOut, .btnAccInfo {
+        float: right;
+        width: auto;
+        margin-right: 5px;    
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (min-width: 992px) { 
+    .rentedSearch, .availableSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 300px;
+        padding-left: 10px;
+    }
+
+    .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: 125px;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
+
+    .btnLogOut, .btnAccInfo {
+        float: right;
+        width: auto;
+        margin-right: 5px;    
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (min-width: 1200px){ 
+    .rentedSearch, .availableSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 300px;
+        padding-left: 10px;
+    }
+
+    .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: 125px;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
+
+    .btnLogOut, .btnAccInfo {
+        float: right;
+        width: auto;
+        margin-right: 5px;    
+        margin-top: 5px;
+    }
 }

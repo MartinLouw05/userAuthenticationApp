@@ -79,22 +79,6 @@ h1 {
     font-size: small;
 }
 
-.rentedSearch, .authorSearch, .searchInput, .memberSearch {
-    height: 35px;
-    font-size: small;
-    border: solid;
-    border-radius: 5px;
-    border-width: 1px;
-    width: 300px;
-    padding-left: 10px;
-}
-
-.btnBookSearch, .btnRentedSearch, .btnMemberSearch, .btnAuthorSearch {
-    height: 35px;
-    font-size: small;
-    margin-top: 7px;
-}
-
 .rentedTable, .authorTable, .bookTable, .memberTable {
     width: 100%;
     background-color: #966f33;
@@ -127,14 +111,10 @@ td {
     color: beige;
 }
 
-.btnAddBook, .btnAddAuthor, .btnRentedHistory, .btnRented {
-    font-size: small;
-    width: 125px;
+.btnBookSearch, .btnRentedSearch, .btnMemberSearch, .btnAuthorSearch {
     height: 35px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    background-color: yellowgreen;
+    font-size: small;
+    margin-top: 7px;
 }
 
 .searchSelect {
@@ -167,4 +147,114 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+@media only screen and (max-width: 600px) { 
+    .rentedSearch, .authorSearch, .searchInput, .memberSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 200px;
+        padding-left: 10px;
+    }
+
+    .btnAddBook, .btnAddAuthor, .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: fit-content;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
+}
+
+@media only screen and (min-width: 600px) { 
+    .rentedSearch, .authorSearch, .searchInput, .memberSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 200px;
+        padding-left: 10px;
+    }
+
+    .btnAddBook, .btnAddAuthor, .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: fit-content;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
+}
+
+@media only screen and (min-width: 772px) { 
+    .rentedSearch, .authorSearch, .searchInput, .memberSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 250px;
+        padding-left: 10px;
+    }
+
+    .btnAddBook, .btnAddAuthor, .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: fit-content;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
+}
+
+@media only screen and (min-width: 992px) { 
+    .rentedSearch, .authorSearch, .searchInput, .memberSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 300px;
+        padding-left: 10px;
+    }
+
+    .btnAddBook, .btnAddAuthor, .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: 125px;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
+}
+
+@media only screen and (min-width: 1200px){ 
+    .rentedSearch, .authorSearch, .searchInput, .memberSearch {
+        height: 35px;
+        font-size: small;
+        border: solid;
+        border-radius: 5px;
+        border-width: 1px;
+        width: 300px;
+        padding-left: 10px;
+    }
+
+    .btnAddBook, .btnAddAuthor, .btnRentedHistory, .btnRented {
+        font-size: small;
+        width: 125px;
+        height: 35px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+    }
 }

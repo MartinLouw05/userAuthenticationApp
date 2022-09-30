@@ -7,18 +7,6 @@ body {
     background-repeat: no-repeat;
 }
 
-.signInGrid {
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
-    display: grid;
-    grid-template-areas: "gridImage gridForm";
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5%;
-    grid-auto-rows: auto;
-    grid-template-rows: 750px;    
-}
-
 .frmSignIn {
     background-color: rgba(0,0,0,.4);
     border: solid;
@@ -54,23 +42,6 @@ h3, label {
     color: beige;
 }
 
-img {
-    border: solid;
-    border-width: 0px;
-    border-radius: 10px;
-    width: 90%;
-    height: 100%;
-}
-
-.btnLogIn, .btnRegisterSubmit, .btnForgotSubmit {
-    width: 175px;
-}
-
-.btnRegister, .btnCancel, .btnForgotCancel, .btnRegisterCancel {
-    float: right;
-    width: 175px;
-}
-
 .btnForgotPassword {
     color: white;
     cursor: pointer;
@@ -93,4 +64,186 @@ img {
 
 .registerDisplay {
     display: none;
+}
+
+@media only screen and (max-width: 600px) { 
+    .signInGrid {
+        margin-top: 5%;
+        display: grid;
+        grid-template-areas: "gridImage gridForm";
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5%;
+        grid-auto-rows: auto;
+        grid-template-rows: 750px;    
+    }
+
+    .btnLogIn {
+        width: 75px;
+    }
+
+    .btnRegisterSubmit, .btnForgotSubmit {
+        width: 100px;
+    }
+
+    .btnRegister {
+        float: right;
+        width: 140px;
+    }
+    
+    .btnCancel, .btnForgotCancel, .btnRegisterCancel {
+        float: right;
+        width: 100px;
+    }
+
+    img {
+        border: solid;
+        border-width: 0px;
+        border-radius: 10px;
+        width: 90%;
+        height: 75%;
+    }
+}
+
+@media only screen and (min-width: 600px) { 
+        .signInGrid {
+        margin-top: 5%;
+        display: grid;
+        grid-template-areas: "gridImage gridForm";
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5%;
+        grid-auto-rows: auto;
+        grid-template-rows: 750px;    
+    }
+
+    .btnLogIn {
+        width: 75px;
+    }
+
+    .btnRegisterSubmit, .btnForgotSubmit {
+        width: 100px;
+    }
+
+    .btnRegister {
+        float: right;
+        width: 140px;
+    }
+    
+    .btnCancel, .btnForgotCancel, .btnRegisterCancel {
+        float: right;
+        width: 100px;
+    }
+
+    img {
+        border: solid;
+        border-width: 0px;
+        border-radius: 10px;
+        width: 90%;
+        height: 75%;
+    }
+}
+
+@media only screen and (min-width: 768px) { 
+    .signInGrid {
+        margin-top: 5%;
+        margin-left: 1%;
+        margin-right: 1%;
+        display: grid;
+        grid-template-areas: "gridImage gridForm";
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5%;
+        grid-auto-rows: auto;
+        grid-template-rows: 750px;    
+    }
+
+    .btnLogIn {
+        width: 100px;
+    }
+
+    .btnRegisterSubmit, .btnForgotSubmit {
+        width: 135px;
+    }
+
+    .btnRegister {
+        float: right;
+        width: 175px;
+    }
+    
+    .btnCancel, .btnForgotCancel, .btnRegisterCancel {
+        float: right;
+        width: 135px;
+    }
+
+    img {
+        border: solid;
+        border-width: 0px;
+        border-radius: 10px;
+        width: 90%;
+        height: 75%;
+    }
+}
+
+@media only screen and (min-width: 992px) { 
+    .signInGrid {
+        margin-top: 5%;
+        margin-left: 3.5%;
+        margin-right: 3.5%;
+        display: grid;
+        grid-template-areas: "gridImage gridForm";
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5%;
+        grid-auto-rows: auto;
+        grid-template-rows: 750px;    
+    }
+
+    .btnLogIn {
+        width: 150px;
+    }
+
+    .btnRegisterSubmit, .btnForgotSubmit {
+        width: 160px;
+    }
+
+    .btnRegister, .btnCancel, .btnForgotCancel, .btnRegisterCancel {
+        float: right;
+        width: 160px;
+    }
+
+    img {
+        border: solid;
+        border-width: 0px;
+        border-radius: 10px;
+        width: 90%;
+        height: 100%;
+    }
+}
+
+@media only screen and (min-width: 1200px){ 
+    .signInGrid {
+        margin-top: 5%;
+        margin-left: 10%;
+        margin-right: 10%;
+        display: grid;
+        grid-template-areas: "gridImage gridForm";
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5%;
+        grid-auto-rows: auto;
+        grid-template-rows: 750px;    
+    }
+
+    .btnLogIn, .btnRegisterSubmit, .btnForgotSubmit {
+        width: 175px;
+    }
+
+    .btnRegister, .btnCancel, .btnForgotCancel, .btnRegisterCancel {
+        float: right;
+        width: 175px;
+    }
+
+    img {
+        border: solid;
+        border-width: 0px;
+        border-radius: 10px;
+        width: 90%;
+        height: 100%;
+    }
 }
