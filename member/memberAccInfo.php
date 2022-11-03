@@ -26,9 +26,9 @@
         <label for="memberContact">Contact Number</label><br>
 			<input type="number" id="memberContact" name="memberContact" class="form-control" value="<?= $row['member_contact_number'] ?>" max="9999999999"><br>
 		<label for="memberPassword">Password</label><br>
-			<input type="password" id="memberPassword" name="memberPassword" value="<?= $row['member_password'] ?>" class="form-control"><br>
+			<input type="password" id="memberPassword" name="memberPassword" class="form-control"><br>
 		<label for="memberReEnterPassword">Re-Enter Password</label><br>
-			<input type="password" id="memberReEnterPassword" name="memberReEnterPassword" value="<?= $row['member_password'] ?>" class="form-control"><br>
+			<input type="password" id="memberReEnterPassword" name="memberReEnterPassword" class="form-control"><br>
 		<input type="submit" id="btnSubmitUpdate" name="btnSubmitUpdate" value="Update" class="btn btn-success btnSubmitBook">
 		<button id="btnCancelUpdate" name="btnCancelUpdate" value="Cancel" class="btn btn-danger btnCancelBook">Cancel</button>
 	</form>

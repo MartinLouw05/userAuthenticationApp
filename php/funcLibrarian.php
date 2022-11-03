@@ -133,6 +133,7 @@
         $bookAuthor = $_POST['bookAuthor'];
         $bookPublishedDate = $_POST['bookPublishedDate'];
         $bookDesc = $_POST['bookDesc'];
+        $bookDesc = preg_replace("/[^A-Za-z0-9 ]/", '', $bookDesc);
 
         //Save Book Information
         if ($bookName == "" || $bookGenre == "" || $bookAuthor == "" || $bookPublishedDate == "" || $bookDesc == "") {
@@ -140,7 +141,7 @@
         }
         else {
             $sql = "UPDATE books 
-                    SET book_name = '$bookName', book_published_date = '$bookPublishedDate', genre_id = '$bookGenre', author_id = '$bookAuthor'
+                    SET book_name = '$bookName', book_published_date = '$bookPublishedDate', genre_id = '$bookGenre', author_id = '$bookAuthor', book_desc = '$bookDesc'
                     WHERE book_id = '$bookID'";
 
             //Check if Update was Successful
